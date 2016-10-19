@@ -1,14 +1,36 @@
 ﻿@ModelType System.Collections.IEnumerable
 
 <script type="text/javascript">
-    var v_sales_id = "";
+    var SelectedKeys = new Array();
+    var v_sales_id;
 
     function SelectionChanged(s, e) {
-        gridSalesActual.GetSelectedFieldValues("sales_id", GetSelectedFieldValuesCallback);
+        var key = s.GetRowKey(e.visibleIndex);
+        if (e.isSelected)
+            SelectedKeys.push(key);
+        else
+            SelectedKeys = RemoveElementFromArray(SelectedKeys, key);
+
+        v_sales_id = "";
+        for (var index = 0; index < SelectedKeys.length; index++) {
+            v_sales_id += SelectedKeys[index] + ",";
+        }
+        if (v_sales_id.length > 0) {
+            v_sales_id = v_sales_id.substring(0, v_sales_id.length - 1);
+        }
     }
 
-    function GetSelectedFieldValuesCallback(values) {
-        v_sales_id = values; alert(v_sales_id);
+    function RemoveElementFromArray(array, element) {
+        var index = array.indexOf(element);
+        if (index < 0) return array;
+        array[index] = null;
+        var result = [];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] === null)
+                continue;
+            result.push(array[i]);
+        }
+        return result;
     }
 
     function OnExport(s, e) {
@@ -19,7 +41,7 @@
 
     function OnContextMenuItemClick(sender, args) {
         if (args.item.name == "Mapping") {
-            popupMapping.Show();
+            //popupMapping.Show();
         }
     }
 
@@ -71,10 +93,16 @@
                 popupMapping.Hide();
                 gridSalesActual.UnselectAllRowsOnPage();
                 gridSalesActual.Refresh();
+                v_sales_id = "";
+                SelectedKeys.length = 0;
             } else if (s.cpCloseMapping == "mapping_error") {
                 alert("There is error on mapping data");
                 s.cpCloseMapping = "undefined"
                 popupMapping.Hide();
+                gridSalesActual.UnselectAllRowsOnPage();
+                gridSalesActual.Refresh();
+                v_sales_id = "";
+                SelectedKeys.length = 0;
             }
         }
     }
@@ -90,13 +118,8 @@
         var prd = cbProductMapping.GetValue();
         var trg = txTarget.GetValue();
         var not = txNote.GetValue();
-        if (v_sales_id != "") {
-            var param = 'mapping;' + null + ';' + null + ';' + prd + ';' + trg + ';' + not + ';' + v_sales_id;
-            gridSalesActual.PerformCallback({ prm: param });
-            v_sales_id = "";
-        } else {
-            popupMapping.Hide();
-        }
+        var param = 'mapping;' + null + ';' + null + ';' + prd + ';' + trg + ';' + not + ';' + v_sales_id;
+        gridSalesActual.PerformCallback({ prm: param });
     }
 
     function do_retrieve(s, e) {

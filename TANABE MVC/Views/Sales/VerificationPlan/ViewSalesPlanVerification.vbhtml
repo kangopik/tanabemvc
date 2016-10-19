@@ -1,13 +1,4 @@
-﻿@code
-    Html.EnableClientValidation()
-    Html.EnableUnobtrusiveJavaScript()
-
-    Dim msg As String
-    msg = TempData("msg")
-
-End Code
-
-@Html.DevExpress().GridView(Sub(grid)
+﻿@Html.DevExpress().GridView(Sub(grid)
                                 grid.Name = "gridSalesPlanVerification"
                                 grid.CallbackRouteValues = New With {.Controller = "SalesPlanVerification", .Action = "ViewSalesPlanVerification"}
                                 grid.CustomActionRouteValues = New With {.Controller = "SalesPlanVerification", .Action = "ViewSalesPlanVerificationCustomCallback"}
@@ -44,7 +35,6 @@ End Code
                                 grid.SettingsPopup.CustomizationWindow.Width = Unit.Percentage(100)
                                 grid.SettingsPopup.CustomizationWindow.HorizontalAlign = PopupHorizontalAlign.Center
                                 grid.SettingsPopup.CustomizationWindow.VerticalAlign = PopupVerticalAlign.TopSides
-                                'grid.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages
                                                                              
                                 grid.Columns.Add(Sub(column)
                                                      column.Caption = "ACTION"
@@ -410,13 +400,13 @@ End Code
                                                                    End Select
                                                                End Sub
                                      
-                                grid.FillContextMenuItems = Sub(s, e)
-                                                                If (e.MenuType = GridViewContextMenuType.Rows) Then
-                                                                    Dim item = e.Items.Add("Mapping to Products", "Mapping")
-                                                                    item.BeginGroup = True
-                                                                    e.Items.Insert(e.Items.IndexOfCommand(GridViewContextMenuCommand.Refresh), item)
-                                                                End If
-                                                            End Sub
+                                'grid.FillContextMenuItems = Sub(s, e)
+                                '                                If (e.MenuType = GridViewContextMenuType.Rows) Then
+                                '                                    Dim item = e.Items.Add("Mapping to Products", "Mapping")
+                                '                                    item.BeginGroup = True
+                                '                                    e.Items.Insert(e.Items.IndexOfCommand(GridViewContextMenuCommand.Refresh), item)
+                                '                                End If
+                                '                            End Sub
                                      
                                 grid.CustomJSProperties = Sub(s, e)
                                                               If ViewData("VerifyFlag") IsNot Nothing Then

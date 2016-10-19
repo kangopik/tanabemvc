@@ -1,10 +1,11 @@
 ﻿@ModelType System.Collections.IEnumerable
 
 <script type="text/javascript">
+    var SelectedKeys = new Array();
     var v_sales_id = "";
 
     function SelectionChanged(s, e) {
-        gridSalesRealization.GetSelectedFieldValues("sales_id", GetSelectedFieldValuesCallback);
+        s.GetSelectedFieldValues("sales_id", GetSelectedFieldValuesCallback);
     }
 
     function GetSelectedFieldValuesCallback(values) {
@@ -83,10 +84,16 @@
                 popupMapping.Hide();
                 gridSalesRealization.UnselectAllRowsOnPage();
                 gridSalesRealization.Refresh();
+                v_sales_id = "";
+                SelectedKeys.length = 0;
             } else if (s.cpCloseMapping == "mapping_error") {
                 alert("There is error on mapping data");
                 s.cpCloseMapping = "undefined"
                 popupMapping.Hide();
+                gridSalesRealization.UnselectAllRowsOnPage();
+                gridSalesRealization.Refresh();
+                v_sales_id = "";
+                SelectedKeys.length = 0;
             }
         }        
     }
@@ -102,11 +109,8 @@
         var prd = cbProductMapping.GetValue();
         var trg = txTarget.GetValue();
         var not = txNote.GetValue();
-        if (v_sales_id != "") {
-            var param = 'mapping;' + null + ';' + null + ';' +prd + ';' + trg + ';' + not + ';' + v_sales_id;
-            gridSalesRealization.PerformCallback({ prm: param });
-            v_sales_id = ""
-        }
+        var param = 'mapping;' + null + ';' + null + ';' +prd + ';' + trg + ';' + not + ';' + v_sales_id;
+        gridSalesRealization.PerformCallback({ prm: param });
     }
 
 </script>

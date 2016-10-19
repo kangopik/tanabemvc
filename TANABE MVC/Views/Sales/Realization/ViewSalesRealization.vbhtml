@@ -1,20 +1,11 @@
-﻿@code
-    Html.EnableClientValidation()
-    Html.EnableUnobtrusiveJavaScript()
-
-    Dim msg As String
-    msg = TempData("msg")
-
-End Code
-
-@Html.DevExpress().GridView(Sub(grid)
+﻿@Html.DevExpress().GridView(Sub(grid)
                                 grid.Name = "gridSalesRealization"
                                 grid.CallbackRouteValues = New With {.Controller = "SalesRealization", .Action = "ViewSalesRealization"}
                                 grid.CustomActionRouteValues = New With {.Controller = "SalesRealization", .Action = "ViewSalesRealizationCustomCallback"}
                                 grid.SettingsEditing.DeleteRowRouteValues = New With {.Controller = "SalesRealization", .Action = "DeleteReal", .sales_id = ViewData("sales_id")}
                                 grid.SettingsEditing.UpdateRowRouteValues = New With {.Controller = "SalesRealization", .Action = "UpdateReal"}
                                 grid.ClientSideEvents.EndCallback = "gridSalesRealization_EndCallBack"
-                                grid.KeyFieldName = "sp_id"
+                                     grid.KeyFieldName = "sp_id"
                                 grid.Width = Unit.Percentage(100)
                                 grid.SettingsCommandButton.EditButton.Text = "Realization"
                                      grid.ClientSideEvents.SelectionChanged = "SelectionChanged"

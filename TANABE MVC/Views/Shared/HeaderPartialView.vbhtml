@@ -72,10 +72,10 @@ Else
                                             subItem.Items.Add("Sales Realization", "SalesRealization", "~/Content/Images/check.png")
                                             subItem.Items.Add("Sales Actual", "SalesActual", "~/Content/Images/check.png")
                                             subItem.Items.Add("Sales History", "SalesHistory", "~/Content/Images/check.png")
-                                            subItem.Items(0).NavigateUrl = "/SalesPlan"
-                                            subItem.Items(1).NavigateUrl = "/SalesRealization"
-                                            subItem.Items(2).NavigateUrl = "/SalesActual"
-                                            subItem.Items(3).NavigateUrl = "/SalesHistory"
+                                            subItem.Items(0).NavigateUrl = "/Sales/Plan"
+                                            subItem.Items(1).NavigateUrl = "/Sales/Realization"
+                                            subItem.Items(2).NavigateUrl = "/Sales/Actual"
+                                            subItem.Items(3).NavigateUrl = "/Sales/History"
                                         End Sub)
                                 End If
                             End Sub)
@@ -107,10 +107,10 @@ Else
                                             subItem.Items.Add("Verification Sales Realization", "SalesRealVerification", "~/Content/Images/check.png")
                                             subItem.Items.Add("Verification Sales Plan History", "SalesPlanHistoryVerification", "~/Content/Images/check.png")
                                             subItem.Items.Add("Verification Sales Realization History", "SalesRealHistoryVerification", "~/Content/Images/check.png")
-                                            subItem.Items(0).NavigateUrl = "/SalesPlanVerification"
-                                            subItem.Items(1).NavigateUrl = "/SalesRealVerification"
-                                            subItem.Items(2).NavigateUrl = "/SalesPlanHistoryVerification"
-                                            subItem.Items(3).NavigateUrl = "/SalesRealHistoryVerification"
+                                            subItem.Items(0).NavigateUrl = "/Verification/Sales/Plan"
+                                            subItem.Items(1).NavigateUrl = "/Verification/Sales/Real"
+                                            subItem.Items(2).NavigateUrl = "/Verification/Sales/PlanHistory"
+                                            subItem.Items(3).NavigateUrl = "/Verification/Sales/RealHistory"
                                                                                  
                                         End Sub)
                                                            
@@ -141,7 +141,7 @@ Else
                                 item.Text = "Admin"
                                 item.Items.Add(Sub(i)
                                                    i.Items.Add("Monthly Visit", "MonthlyVisit", "~/Content/Images/check.png")
-                                                   i.Items(0).NavigateUrl = "/AuditVisitMonthly"
+                                                   i.Items(0).NavigateUrl = "/Master/AuditVisit"
                                                End Sub)
                                 item.Items.Add("Master Representative", "MasterRepresentative", "~/Content/Images/check.png")
                                 item.Items.Add("Master Doctors", "MasterDoctor", "~/Content/Images/check.png")
@@ -155,12 +155,12 @@ Else
                                 item.Items.Add("Master Target", "mtarget", "~/Content/Images/check.png")
                                                               
                                 item.Items(0).Text = "Audit"
-                                item.Items(1).NavigateUrl = "/MasterRepresentative"
-                                item.Items(2).NavigateUrl = "/MasterDoctor"
-                                item.Items(3).NavigateUrl = "/MasterSbo"
-                                item.Items(4).NavigateUrl = "/MasterBo"
-                                item.Items(5).NavigateUrl = "/MasterRegional"
-                                item.Items(6).NavigateUrl = "/MasterProduct"
+                                item.Items(1).NavigateUrl = "/Master/Representative"
+                                item.Items(2).NavigateUrl = "/Master/Doctor"
+                                item.Items(3).NavigateUrl = "/Master/SBO"
+                                item.Items(4).NavigateUrl = "/Master/BO"
+                                item.Items(5).NavigateUrl = "/Master/Regional"
+                                item.Items(6).NavigateUrl = "/Master/Product"
                                 item.Items(7).NavigateUrl = "/MasterVisit"
                                 item.Items(8).NavigateUrl = "/mcustomer"
                                 item.Items(9).NavigateUrl = "/mproduct"
@@ -218,10 +218,10 @@ Else
                                             subItem.Items.Add("Sales Realization", "SalesRealization", "~/Content/Images/check.png")
                                             subItem.Items.Add("Sales Actual", "SalesActual", "~/Content/Images/check.png")
                                             subItem.Items.Add("Sales History", "SalesHistory", "~/Content/Images/check.png")
-                                            subItem.Items(0).NavigateUrl = "/SalesPlan"
-                                            subItem.Items(1).NavigateUrl = "/SalesRealization"
-                                            subItem.Items(2).NavigateUrl = "/SalesActual"
-                                            subItem.Items(3).NavigateUrl = "/SalesHistory"
+                                            subItem.Items(0).NavigateUrl = "/Sales/Plan"
+                                            subItem.Items(1).NavigateUrl = "/Sales/Realization"
+                                            subItem.Items(2).NavigateUrl = "/Sales/Actual"
+                                            subItem.Items(3).NavigateUrl = "/Sales/History"
                                         End Sub)
                                 End If
                             End Sub)
@@ -254,11 +254,10 @@ Else
                                             subItem.Items.Add("Verification Sales Realization", "SalesRealVerification", "~/Content/Images/check.png")
                                             subItem.Items.Add("Verification Sales Plan History", "SalesPlanHistoryVerification", "~/Content/Images/check.png")
                                             subItem.Items.Add("Verification Sales Realization History", "SalesRealHistoryVerification", "~/Content/Images/check.png")
-                                            subItem.Items(0).NavigateUrl = "/SalesPlanVerification"
-                                            subItem.Items(1).NavigateUrl = "/SalesRealVerification"
-                                            subItem.Items(2).NavigateUrl = "/SalesPlanHistoryVerification"
-                                            subItem.Items(3).NavigateUrl = "/SalesRealHistoryVerification"
-                                                                                 
+                                            subItem.Items(0).NavigateUrl = "/Verification/Sales/Plan"
+                                            subItem.Items(1).NavigateUrl = "/Verification/Sales/Real"
+                                            subItem.Items(2).NavigateUrl = "/Verification/Sales/PlanHistory"
+                                            subItem.Items(3).NavigateUrl = "/Verification/Sales/RealHistory"
                                         End Sub)
                                                            
                                 End Sub)
@@ -288,7 +287,7 @@ Else
                                 item.Text = "Admin"
                                 item.Items.Add(Sub(i)
                                                    i.Items.Add("Monthly Visit", "MonthlyVisit", "~/Content/Images/check.png")
-                                                   i.Items(0).NavigateUrl = "/AuditVisitMonthly"
+                                                   i.Items(0).NavigateUrl = "/Master/AuditVisit"
                                                End Sub)
                                 item.Items.Add("Master Representative", "MasterRepresentative", "~/Content/Images/check.png")
                                 item.Items.Add("Master Doctors", "MasterDoctor", "~/Content/Images/check.png")
@@ -302,12 +301,12 @@ Else
                                 item.Items.Add("Master Target", "mtarget", "~/Content/Images/check.png")
                                                               
                                 item.Items(0).Text = "Audit"
-                                item.Items(1).NavigateUrl = "/MasterRepresentative"
-                                item.Items(2).NavigateUrl = "/MasterDoctor"
-                                item.Items(3).NavigateUrl = "/MasterSbo"
-                                item.Items(4).NavigateUrl = "/MasterBo"
-                                item.Items(5).NavigateUrl = "/MasterRegional"
-                                item.Items(6).NavigateUrl = "/MasterProduct"
+                                item.Items(1).NavigateUrl = "/Master/Representative"
+                                item.Items(2).NavigateUrl = "/Master/Doctor"
+                                item.Items(3).NavigateUrl = "/Master/SBO"
+                                item.Items(4).NavigateUrl = "/Master/BO"
+                                item.Items(5).NavigateUrl = "/Master/Regional"
+                                item.Items(6).NavigateUrl = "/Master/Product"
                                 item.Items(7).NavigateUrl = "/MasterVisit"
                                 item.Items(8).NavigateUrl = "/mcustomer"
                                 item.Items(9).NavigateUrl = "/mproduct"

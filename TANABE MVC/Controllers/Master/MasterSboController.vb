@@ -27,6 +27,7 @@ Public Class MasterSboController
     <ValidateInput(False)> _
     Public Function ViewMasterSBO() As ActionResult
         Try
+            ViewData("RequestFlag") = "undefined"
             Dim repo = New Im_sbo()
             Dim model = repo.GetAllMasterSBO()
             Return PartialView("~/Views/Master/MasterSBO/ViewMasterSBO.vbhtml", model)
@@ -67,11 +68,11 @@ Public Class MasterSboController
                 mdl.sbo_status = collection("sbo_status")
             End If
             repo.Insert(mdl)
-            TempData("msg") = "Add Master SBO Success"
+            ViewData("RequestFlag") = "Add Master SBO Success"
             Dim model = repo.GetAllMasterSBO()
             Return PartialView("~/Views/Master/MasterSBO/ViewMasterSBO.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Add Master SBO Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Add Master SBO Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterSBO()
             Return PartialView("~/Views/Master/MasterSBO/ViewMasterSBO.vbhtml", model)
         End Try
@@ -97,11 +98,11 @@ Public Class MasterSboController
                 mdl.sbo_sequence_code = Convert.ToInt32(collection("sbo_sequence_code"))
             End If
             repo.Update(mdl)
-            TempData("msg") = "Update Master SBO Success"
+            ViewData("RequestFlag") = "Update Master SBO Success"
             Dim model = repo.GetAllMasterSBO()
             Return PartialView("~/Views/Master/MasterSBO/ViewMasterSBO.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Update Master SBO Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Update Master SBO Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterSBO()
             Return PartialView("~/Views/Master/MasterSBO/ViewMasterSBO.vbhtml", model)
         End Try

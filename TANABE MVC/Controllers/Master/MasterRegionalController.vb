@@ -27,6 +27,7 @@ Public Class MasterRegionalController
     <ValidateInput(False)> _
     Public Function ViewMasterRegional() As ActionResult
         Try
+            ViewData("RequestFlag") = "undefined"
             Dim repo = New Im_regional()
             Dim model = repo.GetAllMasterRegional()
             Return PartialView("~/Views/Master/MasterRegional/ViewMasterRegional.vbhtml", model)
@@ -66,11 +67,11 @@ Public Class MasterRegionalController
                 mdl.reg_status = collection("reg_status")
             End If
             repo.Insert(mdl)
-            TempData("msg") = "Add Master Region Success"
+            ViewData("RequestFlag") = "Add Master Region Success"
             Dim model = repo.GetAllMasterRegional()
             Return PartialView("~/Views/Master/MasterRegional/ViewMasterRegional.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Add Master Region Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Add Master Region Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterRegional()
             Return PartialView("~/Views/Master/MasterRegional/ViewMasterRegional.vbhtml", model)
         End Try
@@ -102,11 +103,11 @@ Public Class MasterRegionalController
                 mdl.reg_status = collection("reg_status")
             End If
             repo.Update(mdl)
-            TempData("msg") = "Update Master Region Success"
+            ViewData("RequestFlag") = "Update Master Region Success"
             Dim model = repo.GetAllMasterRegional()
             Return PartialView("~/Views/Master/MasterRegional/ViewMasterRegional.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Update Master Region Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Update Master Region Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterRegional()
             Return PartialView("~/Views/Master/MasterRegional/ViewMasterRegional.vbhtml", model)
         End Try

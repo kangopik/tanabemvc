@@ -1,14 +1,7 @@
-﻿@code
-    Html.EnableClientValidation()
-    Html.EnableUnobtrusiveJavaScript()
-
-    Dim msg As String
-    msg = TempData("msg")
-
-End Code
-@Html.DevExpress().GridView(Sub(settings)
+﻿@Html.DevExpress().GridView(Sub(settings)
                                 settings.Name = "DataView1"
                                 settings.CallbackRouteValues = New With {.Controller = "MasterSbo", .Action = "ViewMasterSBO"}
+                                settings.ClientSideEvents.EndCallback = "DataView1_EndCallBack"
                                 settings.Width = System.Web.UI.WebControls.Unit.Percentage(100)
                                 settings.SettingsPager.PageSize = 10
                                 settings.SettingsSearchPanel.Visible = True
@@ -104,39 +97,13 @@ End Code
                                                          checkBoxProperties.ValueChecked = 1
                                                          checkBoxProperties.ValueUnchecked = 0
                                                      End Sub)
+                                     
+                                     settings.CustomJSProperties = Sub(s, e)
+                                                                       If ViewData("RequestFlag") IsNot Nothing Then
+                                                                           e.Properties("cpMessage") = ViewData("RequestFlag").ToString()
+                                                                       End If
+                                                                   End Sub
     
                             End Sub).Bind(Model).GetHtml()
-
-@code
-
-    If msg <> "" Then
-        TempData("msg") = ""
-        Html.DevExpress().PopupControl(
-            Sub(settings)
-                    settings.Name = "PopupControl"
-                    settings.ShowHeader = True
-                    settings.ShowOnPageLoad = True
-                    settings.AllowDragging = True
-                    settings.CloseAction = CloseAction.OuterMouseClick
-                    settings.CloseOnEscape = True
-                    settings.Modal = True
-                    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter
-                    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter
-                    settings.SetHeaderTemplateContent(
-                        Sub()
-                                ViewContext.Writer.Write("<div style='font-size:small;'>Information</div>")
-                        End Sub)
-
-                    settings.SetContent(
-                        Sub()
-                                ViewContext.Writer.Write(msg)
-                        End Sub)
-
-
-            End Sub).GetHtml()
-
-
-    End If
-End Code
 
 

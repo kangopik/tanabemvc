@@ -1,13 +1,4 @@
-﻿@code
-    Html.EnableClientValidation()
-    Html.EnableUnobtrusiveJavaScript()
-
-    Dim msg As String
-    msg = TempData("msg")
-
-End Code
-
-@Html.DevExpress().GridView(Sub(grid)
+﻿@Html.DevExpress().GridView(Sub(grid)
                                 grid.Name = "gridSalesActual"
                                 grid.CallbackRouteValues = New With {.Controller = "SalesActual", .Action = "ViewSalesActual"}
                                 grid.CustomActionRouteValues = New With {.Controller = "SalesActual", .Action = "ViewSalesActualCustomCallback"}

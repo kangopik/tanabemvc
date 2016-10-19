@@ -29,6 +29,7 @@ Public Class MasterDoctorController
         Try
             Dim repo = New Im_doctor()
             Dim model = Nothing
+            ViewData("RequestFlag") = "undefined"
             If act <> "" Then
                 Dim params As String() = act.Split(New Char() {":"})
                 Select Case params(0)
@@ -49,16 +50,16 @@ Public Class MasterDoctorController
                                     If (repo.CekDokterStillPlaned(item) = 0) Then
                                         Try
                                             model = repo.MappingSBO(item, dr_code(0))
-                                            TempData("msg") = "Mapping SBO Success"
+                                            ViewData("RequestFlag") = "Mapping SBO Success"
                                         Catch ex As Exception
                                             Throw
-                                            TempData("msg") = "Mapping SBO Failed"
+                                            ViewData("RequestFlag") = "Mapping SBO Failed"
                                         End Try
                                     Else
-                                        TempData("msg") = "Doctor Still Planned"
+                                        ViewData("RequestFlag") = "Doctor Still Planned"
                                     End If
                                 Else
-                                    TempData("msg") = "Doctor Already Planned"
+                                    ViewData("RequestFlag") = "Doctor Already Planned"
                                 End If
                             Next item
                         End If
@@ -72,13 +73,13 @@ Public Class MasterDoctorController
                                 If (repo.CekDokterStillPlaned(item) = 0) Then
                                     Try
                                         model = repo.MappingStatus(item, dr_code(0))
-                                        TempData("msg") = "Mapping Status Success"
+                                        ViewData("RequestFlag") = "Mapping Status Success"
                                     Catch ex As Exception
                                         Throw
-                                        TempData("msg") = "Mapping Status Failed"
+                                        ViewData("RequestFlag") = "Mapping Status Failed"
                                     End Try
                                 Else
-                                    TempData("msg") = "Doctor Still Planned"
+                                    ViewData("RequestFlag") = "Doctor Still Planned"
                                 End If
                             Next item
                         End If
@@ -92,13 +93,13 @@ Public Class MasterDoctorController
                                 If (repo.CekDokterStillPlaned(item) = 0) Then
                                     Try
                                         model = repo.MappingQuadrant(item, dr_code(0))
-                                        TempData("msg") = "Mapping Quadrant Success"
+                                        ViewData("RequestFlag") = "Mapping Quadrant Success"
                                     Catch ex As Exception
                                         Throw
-                                        TempData("msg") = "Mapping Quadrant Failed"
+                                        ViewData("RequestFlag") = "Mapping Quadrant Failed"
                                     End Try
                                 Else
-                                    TempData("msg") = "Doctor Still Planned"
+                                    ViewData("RequestFlag") = "Doctor Still Planned"
                                 End If
                             Next item
                         End If
@@ -200,11 +201,11 @@ Public Class MasterDoctorController
                 mdl.dr_status = collection("dr_status").Replace("""", "")
             End If
             repo.Insert(mdl)
-            TempData("msg") = "Add Master Doctor Success"
+            ViewData("RequestFlag") = "Add Master Doctor Success"
             Dim model = repo.GetAllMasterDoctor()
             Return PartialView("~/Views/Master/MasterDoctor/ViewMasterDoctor.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Add Master Doctor Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Add Master Doctor Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterDoctor()
             Return PartialView("~/Views/Master/MasterDoctor/ViewMasterDoctor.vbhtml", model)
         End Try
@@ -250,12 +251,12 @@ Public Class MasterDoctorController
         If (repo.CekDokter(mdl.dr_code).Count = 0) Then
             Try
                 repo.Update(mdl)
-                TempData("msg") = "Update Master Doctor Success"
+                ViewData("RequestFlag") = "Update Master Doctor Success"
             Catch ex As Exception
-                TempData("msg") = "Update Master Doctor Failed, Please Check Your Input Field"
+                ViewData("RequestFlag") = "Update Master Doctor Failed, Please Check Your Input Field"
             End Try
         Else
-            TempData("msg") = "Update can't be done unless doctor status on visit is unplanned"
+            ViewData("RequestFlag") = "Update can't be done unless doctor status on visit is unplanned"
         End If
         
         model = repo.GetAllMasterDoctor()

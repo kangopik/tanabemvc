@@ -27,6 +27,7 @@ Public Class MasterVisitController
     <ValidateInput(False)> _
     Public Function ViewMasterVisit() As ActionResult
         Try
+            ViewData("RequestFlag") = "undefined"
             Dim repo = New Im_visit()
             Dim model = repo.GetAllMasterVisit()
             Return PartialView("~/Views/Master/MasterVisit/ViewMasterVisit.vbhtml", model)
@@ -61,11 +62,11 @@ Public Class MasterVisitController
                 mdl.visit_status = collection("visit_status")
             End If
             repo.Insert(mdl)
-            TempData("msg") = "Add Master Visit Success"
+            ViewData("RequestFlag") = "Add Master Visit Success"
             Dim model = repo.GetAllMasterVisit()
             Return PartialView("~/Views/Master/MasterVisit/ViewMasterVisit.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Add Master Visit Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Add Master Visit Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterVisit()
             Return PartialView("~/Views/Master/MasterVisit/ViewMasterVisit.vbhtml", model)
         End Try
@@ -87,11 +88,11 @@ Public Class MasterVisitController
                 mdl.visit_status = collection("visit_status")
             End If
             repo.Update(mdl)
-            TempData("msg") = "Update Master Visit Success"
+            ViewData("RequestFlag") = "Update Master Visit Success"
             Dim model = repo.GetAllMasterVisit()
             Return PartialView("~/Views/Master/MasterVisit/ViewMasterVisit.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Update Master Visit Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Update Master Visit Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterVisit()
             Return PartialView("~/Views/Master/MasterVisit/ViewMasterVisit.vbhtml", model)
         End Try

@@ -1,19 +1,11 @@
-﻿@code
-    Html.EnableClientValidation()
-    Html.EnableUnobtrusiveJavaScript()
-
-    Dim msg As String
-    msg = TempData("msg")
-
-End Code
-
-@Html.DevExpress().GridView(Sub(grid)
+﻿@Html.DevExpress().GridView(Sub(grid)
                                 grid.Name = "gridSalesPlan"
                                 grid.CallbackRouteValues = New With {.Controller = "SalesPlan", .Action = "ViewSalesPlan"}
                                 grid.CustomActionRouteValues = New With {.Controller = "SalesPlan", .Action = "ViewSalesPlanCustomCallback"}
                                 grid.SettingsEditing.DeleteRowRouteValues = New With {.Controller = "SalesPlan", .Action = "DeletePlan", .sales_id = ViewData("sales_id")}
                                 grid.SettingsEditing.UpdateRowRouteValues = New With {.Controller = "SalesPlan", .Action = "UpdatePlan"}
                                 grid.ClientSideEvents.EndCallback = "gridSalesPlan_EndCallBack"
+                                grid.ClientSideEvents.SelectionChanged = "SelectionChanged"
                                 grid.SettingsBehavior.ConfirmDelete = True
                                 grid.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(1)
                                 grid.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1)
@@ -45,7 +37,7 @@ End Code
                                 grid.Settings.VerticalScrollableHeight = 350
                                 grid.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm
                                 grid.SettingsSearchPanel.Visible = False
-                                grid.SettingsBehavior.AllowSelectByRowClick = False
+                                grid.SettingsBehavior.AllowSelectByRowClick = True
                                 grid.SettingsBehavior.ConfirmDelete = True
                                 grid.SettingsBehavior.AllowFixedGroups = True
                                 grid.SettingsBehavior.AutoExpandAllGroups = True
@@ -426,7 +418,6 @@ End Code
                                                                     ViewContext.Writer.Write("</div>")
                                                                 End Sub)
                                      
-                                grid.ClientSideEvents.SelectionChanged = "SelectionChanged"
 
                                 grid.FillContextMenuItems = Sub(s, e)
                                                                 If (e.MenuType = GridViewContextMenuType.Rows) Then

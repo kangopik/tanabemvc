@@ -27,6 +27,7 @@ Public Class MasterProductController
     <ValidateInput(False)> _
     Public Function ViewMasterProduct() As ActionResult
         Try
+            ViewData("RequestFlag") = "undefined"
             Dim repo = New Im_product()
             Dim model = repo.GetAllMasterProduct()
             Return PartialView("~/Views/Master/MasterProduct/ViewMasterProduct.vbhtml", model)
@@ -78,11 +79,11 @@ Public Class MasterProductController
                 mdl.prd_status = collection("prd_status").Replace("""", "")
             End If
             repo.Insert(mdl)
-            TempData("msg") = "Add Master Product Success"
+            ViewData("RequestFlag") = "Add Master Product Success"
             Dim model = repo.GetAllMasterProduct()
             Return PartialView("~/Views/Master/MasterProduct/ViewMasterProduct.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Add Master Product Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Add Master Product Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterProduct()
             Return PartialView("~/Views/Master/MasterProduct/ViewMasterProduct.vbhtml", model)
         End Try
@@ -114,11 +115,11 @@ Public Class MasterProductController
                 mdl.prd_status = collection("prd_status").Replace("""", "")
             End If
             repo.Update(mdl)
-            TempData("msg") = "Update Master Product Success"
+            ViewData("RequestFlag") = "Update Master Product Success"
             Dim model = repo.GetAllMasterProduct()
             Return PartialView("~/Views/Master/MasterProduct/ViewMasterProduct.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Update Master Product Failed, , Please Check Your Input Field"
+            ViewData("RequestFlag") = "Update Master Product Failed, , Please Check Your Input Field"
             Dim model = repo.GetAllMasterProduct()
             Return PartialView("~/Views/Master/MasterProduct/ViewMasterProduct.vbhtml", model)
         End Try

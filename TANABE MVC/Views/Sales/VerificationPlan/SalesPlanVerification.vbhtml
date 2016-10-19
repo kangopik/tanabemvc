@@ -1,6 +1,7 @@
 ﻿@ModelType System.Collections.IEnumerable
 
 <script type="text/javascript">
+    var SelectedKeys = new Array();
     var var_sales_id;
 
     function OnExport(s, e) {
@@ -88,12 +89,33 @@
         } else {
             btnVerify.SetEnabled(true);
             btnUnselect.SetEnabled(true);
-            gridSalesPlanVerification.GetSelectedFieldValues("sales_id", GetSelectedFieldValuesCallback);
+            var key = s.GetRowKey(e.visibleIndex);
+            if (e.isSelected)
+                SelectedKeys.push(key);
+            else
+                SelectedKeys = RemoveElementFromArray(SelectedKeys, key);
+
+            var_sales_id = "";
+            for (var index = 0; index < SelectedKeys.length; index++) {
+                var_sales_id += SelectedKeys[index] + ",";
+            }
+            if (var_sales_id.length > 0) {
+                var_sales_id = var_sales_id.substring(0, var_sales_id.length - 1);
+            }
         }
     }
 
-    function GetSelectedFieldValuesCallback(values) {
-        var_sales_id = values;
+    function RemoveElementFromArray(array, element) {
+        var index = array.indexOf(element);
+        if (index < 0) return array;
+        array[index] = null;
+        var result = [];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] === null)
+                continue;
+            result.push(array[i]);
+        }
+        return result;
     }
 
     function verify_Grid(s, e) {
@@ -108,6 +130,8 @@
         var param = 'verify;' + null + ';' + null + ';' + null + ';' + var_sales_id;
         if (confirm("Are you sure want to verify selected plan ?") == true) {
             gridSalesPlanVerification.PerformCallback({ prm: param });
+            var_sales_id = "";
+            SelectedKeys.length = 0;
         }
     }
 </script>

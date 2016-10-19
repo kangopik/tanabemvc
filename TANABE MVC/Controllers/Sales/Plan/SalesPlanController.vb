@@ -122,9 +122,6 @@ Public Class SalesPlanController
                 End If
             End If
         ElseIf act = "mapping" Then
-            Dim currentDate As DateTime = DateTime.Now
-            Dim curr_month As Int32 = currentDate.Month
-            Dim curr_year As Int32 = currentDate.Year
             Dim prod As String = params(3)
             Dim target As String = params(4)
             Dim note As String = params(5)
@@ -139,10 +136,10 @@ Public Class SalesPlanController
                     For Each item As String In drcode
                         Try
                             If month = "" Then
-                                month = curr_month
+                                month = Session("sess_month")
                             End If
                             If year = "" Then
-                                year = curr_year
+                                year = Session("sess_year")
                             End If
                             month = month.Substring(0, 2)
                             year = year.Substring(0, 4)

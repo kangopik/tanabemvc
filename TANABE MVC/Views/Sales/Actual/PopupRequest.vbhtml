@@ -19,7 +19,6 @@
                                                             Html.DevExpress().RadioButton(Sub(rd)
                                                                                               rd.Name = "rdAccordance"
                                                                                               rd.Enabled = False
-                                                                                              rd.Checked = True
                                                                                               rd.Text = "Accordance Shown"
                                                                                               rd.GroupName = "sub_mission"
                                                                                           End Sub).GetHtml()
@@ -27,6 +26,7 @@
                                                                                               rd.Name = "rdAccordanceDown"
                                                                                               rd.Text = "Monthly"
                                                                                               rd.Enabled = False
+                                                                                              rd.Checked = True
                                                                                               rd.GroupName = "sub_mission"
                                                                                           End Sub).GetHtml()
                                                             ViewContext.Writer.Write("</td>")
@@ -35,7 +35,6 @@
                                                             ViewContext.Writer.Write("<td style='text-align:right;width:110px;'>Month Periode :</td>")
                                                             ViewContext.Writer.Write("<td style='padding-left:15px;'>")
                                                             Html.DevExpress().ComboBox(Sub(monthReq)
-                                                                                           monthReq.ClientVisible = False
                                                                                            monthReq.Name = "cb_date_periode"
                                                                                            monthReq.Width = Unit.Percentage(100)
                                                                                            monthReq.Properties.Items.Add("January").Value = 1

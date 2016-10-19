@@ -1,14 +1,36 @@
 ﻿@ModelType System.Collections.IEnumerable
 
 <script type="text/javascript">
+    var SelectedKeys = new Array();
     var v_rep_id = "";
 
     function SelectionChanged(s, e) {
-        s.GetSelectedFieldValues("rep_id", GetSelectedFieldValuesCallback);
+        var key = s.GetRowKey(e.visibleIndex);
+        if (e.isSelected)
+            SelectedKeys.push(key);
+        else
+            SelectedKeys = RemoveElementFromArray(SelectedKeys, key);
+
+        v_rep_id = "";
+        for (var index = 0; index < SelectedKeys.length; index++) {
+            v_rep_id += SelectedKeys[index] + ",";
+        }
+        if (v_rep_id.length > 0) {
+            v_rep_id = v_rep_id.substring(0, v_rep_id.length - 1);
+        }
     }
 
-    function GetSelectedFieldValuesCallback(values) {
-        v_rep_id = values;
+    function RemoveElementFromArray(array, element) {
+        var index = array.indexOf(element);
+        if (index < 0) return array;
+        array[index] = null;
+        var result = [];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] === null)
+                continue;
+            result.push(array[i]);
+        }
+        return result;
     }
 
     function OnExport(s, e) {
@@ -17,10 +39,13 @@
         $("form").attr("action", actionParams.join("?OutputFormat="));
     }
 
-    function OnEndCallBack(s, e) {
-        if (s.cpMessage) {
+    function DataView1_EndCallBack(s, e) {
+        if (s.cpMessage != "undefined") {
             alert(s.cpMessage);
-            delete s.cpMessage;
+            s.cpMessage = "undefined";
+            v_dr_code = "";
+            SelectedKeys.length = 0;
+            DataView1.UnselectRows();
         }
     }
 
@@ -84,18 +109,9 @@
 
     function ProccessMapping() {
         var reg = cbRegionMapping.GetValue();
-        if ((v_rep_id != "") && (reg != "")) {
-            var param = 'Mapping:' + reg + ';' + v_rep_id;
-            v_rep_id = ""
-            DataView1.UnselectRows();
-            cbRegionMapping.SetValue(null);
-            DataView1.PerformCallback({ act: param });
-        } else {            
-            alert("Please select the record And Region")
-        }
+        var param = 'Mapping:' + reg + ';' + v_rep_id;
+        DataView1.PerformCallback({ act: param });
         popupMappingRegion.Hide();
-        v_rep_id = ""
-        DataView1.UnselectRows();
         cbRegionMapping.SetValue(null);
     }
 </script>
@@ -345,24 +361,3 @@
                                                                         ViewContext.Writer.Write("</div></div>")
                                                                     End Sub)
                               End Sub).GetHtml()
-
-<script type="text/javascript">
-
-    var callbackInitDate;
-    var command;
-
-    function OnStartCallback(s, e) {
-        callbackInitDate = new Date();
-        command = e.command;
-    }
-    function OnEndCallback(s, e) {
-        var currentDate = new Date();
-        var time = currentDate - callbackInitDate;
-    }
-
-    function msg_error() {
-        PopupControl.PerformCallback();
-        PopupControl.Show();
-    }
-
-</script>

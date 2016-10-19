@@ -7,10 +7,10 @@
         $("form").attr("action", actionParams.join("?OutputFormat="));
     }
 
-    function OnEndCallBack(s, e) {
-        if (s.cpMessage) {
+    function DataView1_EndCallBack(s, e) {
+        if (s.cpMessage != "undefined") {
             alert(s.cpMessage);
-            delete s.cpMessage;
+            s.cpMessage = "undefined";
         }
     }
 </script>
@@ -125,25 +125,4 @@
         </tr>
     </table>
 </div>
-
-<script type="text/javascript">
-
-    var callbackInitDate;
-    var command;
-
-    function OnStartCallback(s, e) {
-        callbackInitDate = new Date();
-        command = e.command;
-    }
-    function OnEndCallback(s, e) {
-        var currentDate = new Date();
-        var time = currentDate - callbackInitDate;
-    }
-
-    function msg_error() {
-        PopupControl.PerformCallback();
-        PopupControl.Show();
-    }
-
-</script>
 

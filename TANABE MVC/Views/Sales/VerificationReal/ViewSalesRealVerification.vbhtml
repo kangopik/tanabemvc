@@ -1,13 +1,4 @@
-﻿@code
-    Html.EnableClientValidation()
-    Html.EnableUnobtrusiveJavaScript()
-
-    Dim msg As String
-    msg = TempData("msg")
-
-End Code
-
-@Html.DevExpress().GridView(Sub(grid)
+﻿@Html.DevExpress().GridView(Sub(grid)
                                 grid.Name = "gridSalesRealVerification"
                                 grid.CallbackRouteValues = New With {.Controller = "SalesRealVerification", .Action = "ViewSalesRealVerification"}
                                 grid.CustomActionRouteValues = New With {.Controller = "SalesRealVerification", .Action = "ViewSalesRealVerificationCustomCallback"}
@@ -54,7 +45,6 @@ End Code
                                 grid.SettingsPopup.CustomizationWindow.Width = Unit.Percentage(100)
                                 grid.SettingsPopup.CustomizationWindow.HorizontalAlign = PopupHorizontalAlign.Center
                                 grid.SettingsPopup.CustomizationWindow.VerticalAlign = PopupVerticalAlign.TopSides
-                                grid.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages
                                                                                             
                                 grid.Columns.Add(Sub(c)
                                                      c.Caption = "Action"

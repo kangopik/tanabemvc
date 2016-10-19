@@ -31,7 +31,7 @@ Public Class MasterRepresentativeController
         Try
             Dim repo = New Im_rep()
             Dim model = Nothing
-
+            ViewData("RequestFlag") = "undefined"
             If act <> "" Then
                 Dim params As String() = act.Split(New Char() {":"})
                 Select Case params(0)
@@ -50,10 +50,10 @@ Public Class MasterRepresentativeController
                             For Each item As String In list
                                 Try
                                     model = repo.Mapping(item, rep_id(0))
-                                    TempData("msg") = "Mapping Region Success"
+                                    ViewData("RequestFlag") = "Mapping Region Success"
                                 Catch ex As Exception
                                     Throw
-                                    TempData("msg") = "Mapping Region Failed"
+                                    ViewData("RequestFlag") = "Mapping Region Failed"
                                 End Try
                             Next item
                         End If
@@ -199,14 +199,14 @@ Public Class MasterRepresentativeController
         If (repo.CekRep1(mdl.rep_sbo).Count = 0) Then
             Try
                 repo.Insert(mdl)
-                TempData("msg") = "Add Master Representative Success"
+                ViewData("RequestFlag") = "Add Master Representative Success"
             Catch ex As Exception
-                TempData("msg") = "Add Master Representative Failed, Please Check Your Input Field"
+                ViewData("RequestFlag") = "Add Master Representative Failed, Please Check Your Input Field"
             End Try
         Else
-            TempData("msg") = "Insert can't be done, Rep with current SBO CODE is already exists"
+            ViewData("RequestFlag") = "Insert can't be done, Rep with current SBO CODE is already exists"
         End If
-            
+
         model = repo.GetAllMasterRep()
         Return PartialView("~/Views/Master/MasterRepresentative/ViewMasterRepresentative.vbhtml", model)
     End Function
@@ -256,18 +256,18 @@ Public Class MasterRepresentativeController
                 If (repo.CekRep3(mdl.rep_sbo).Count = 0) Then
                     Try
                         repo.Update(mdl)
-                        TempData("msg") = "Update Master Representative Success"
+                        ViewData("RequestFlag") = "Update Master Representative Success"
                     Catch ex As Exception
-                        TempData("msg") = "Update Master Representative Failed, Please Check Your Input Field"
+                        ViewData("RequestFlag") = "Update Master Representative Failed, Please Check Your Input Field"
                     End Try
                 Else
-                    TempData("msg") = "Insert can't be done, Some doctor in new SBO code is already planned on the visit"
+                    ViewData("RequestFlag") = "Insert can't be done, Some doctor in new SBO code is already planned on the visit"
                 End If
             Else
-                TempData("msg") = "Insert can't be done, Some doctor in previous SBO code is still planned on the visit"
+                ViewData("RequestFlag") = "Insert can't be done, Some doctor in previous SBO code is still planned on the visit"
             End If
         Else
-            TempData("msg") = "Insert can't be done, Rep with current SBO CODE is already exists"
+            ViewData("RequestFlag") = "Insert can't be done, Rep with current SBO CODE is already exists"
         End If
 
         model = repo.GetAllMasterRep()

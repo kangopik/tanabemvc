@@ -1,6 +1,7 @@
 ﻿@ModelType System.Collections.IEnumerable
 
 <script type="text/javascript">
+    var SelectedKeys = new Array();
     var var_sales_id;
 
     function OnExport(s, e) {
@@ -17,8 +18,12 @@
         } else {
             btnVerify.SetEnabled(true);
             btnUnselect.SetEnabled(true);
-            gridSalesPlanHistoryVerification.GetSelectedFieldValues("sales_id", GetSelectedFieldValuesCallback);
+            s.GetSelectedFieldValues("sales_id", GetSelectedFieldValuesCallback);
         }
+    }
+
+    function GetSelectedFieldValuesCallback(values) {
+        var_sales_id = values;
     }
 
     function gridSalesPlanHistoryVerification_EndCallBack(s, e) {
@@ -92,10 +97,6 @@
         btnUnselect.SetEnabled(false);
     }
 
-    function GetSelectedFieldValuesCallback(values) {
-        var_sales_id = values;
-    }
-
     function verify_Grid(s, e) {
         var sales_id = s.GetMainElement().getAttribute("v_sales_id");
         var param = 'verify_by_one;' + null + ';' + null + ';' + null + ';' + sales_id;
@@ -108,6 +109,8 @@
         var param = 'verify;' + null + ';' + null + ';' + null + ';' + var_sales_id;
         if (confirm("Are you sure want to un-verify selected plan ?") == true) {
             gridSalesPlanHistoryVerification.PerformCallback({ prm: param });
+            var_sales_id = "";
+            SelectedKeys.length = 0;
         }
     }
 </script>

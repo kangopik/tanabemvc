@@ -1,27 +1,42 @@
 ﻿@ModelType System.Collections.IEnumerable
 
 <script type="text/javascript">
-    var v_dr_code = "";
+    var SelectedKeys = new Array();
+    var v_dr_code;
 
     function SelectionChanged(s, e) {
-        s.GetSelectedFieldValues("dr_code", GetSelectedFieldValuesCallback);
+        var key = s.GetRowKey(e.visibleIndex);
+        if (e.isSelected)
+            SelectedKeys.push(key);
+        else
+            SelectedKeys = RemoveElementFromArray(SelectedKeys, key);
+
+        v_dr_code = "";
+        for (var index = 0; index < SelectedKeys.length; index++) {
+            v_dr_code += SelectedKeys[index] + ",";
+        }
+        if (v_dr_code.length > 0) {
+            v_dr_code = v_dr_code.substring(0, v_dr_code.length - 1);
+        }
     }
 
-    function GetSelectedFieldValuesCallback(values) {
-        v_dr_code = values;
+    function RemoveElementFromArray(array, element) {
+        var index = array.indexOf(element);
+        if (index < 0) return array;
+        array[index] = null;
+        var result = [];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] === null)
+                continue;
+            result.push(array[i]);
+        }
+        return result;
     }
-
+    
     function OnExport(s, e) {
         var actionParams = $("form").attr("action").split("?OutputFormat=");
         actionParams[1] = s.GetMainElement().getAttribute("OutputFormatAttribute");
         $("form").attr("action", actionParams.join("?OutputFormat="));
-    }
-
-    function OnEndCallBack(s, e) {
-        if (s.cpMessage) {
-            alert(s.cpMessage);
-            delete s.cpMessage;
-        }
     }
 
     function do_reset(s, e) {
@@ -73,53 +88,36 @@
 
     function ProccessMappingSBO() {
         var sbo = cbMappingSBO.GetValue();
-        if ((v_dr_code != "") && (sbo != "")) {
-            var param = 'MappingSBO:' + sbo + ';' + v_dr_code;
-            v_dr_code = ""
-            DataView1.UnselectRows();
-            cbMappingSBO.SetValue(null);
-            DataView1.PerformCallback({ act: param });
-        } else {
-            alert("Please select the record And SBO")
-        }
+        var param = 'MappingSBO:' + sbo + ';' + v_dr_code;
+        DataView1.PerformCallback({ act: param });
         popupMappingSBO.Hide();
-        v_dr_code = ""
-        DataView1.UnselectRows();
         cbMappingSBO.SetValue(null);
     }
 
     function ProccessMappingStatus() {
         var status = cbMappingStatus.GetValue();
-        if ((v_dr_code != "") && (status != "")) {
-            var param = 'MappingStatus:' + status + ';' + v_dr_code;
-            v_dr_code = ""
-            DataView1.UnselectRows();
-            cbMappingStatus.SetValue(null);
-            DataView1.PerformCallback({ act: param });            
-        } else {
-            alert("Please select the record And Status")
-        }
+        var param = 'MappingStatus:' + status + ';' + v_dr_code;
+        DataView1.PerformCallback({ act: param });
         popupMappingStatus.Hide();
-        v_dr_code = ""
-        DataView1.UnselectRows();
         cbMappingStatus.SetValue(null);
     }
 
     function ProccessMappingQuadrant() {
         var quad = cbMappingQuadrant.GetValue();
-        if ((v_dr_code != "") && (quad != "")) {
-            var param = 'MappingQuadrant:' + quad + ';' + v_dr_code;
-            v_dr_code = ""
-            DataView1.UnselectRows();
-            cbMappingQuadrant.SetValue(null);
-            DataView1.PerformCallback({ act: param });            
-        } else {
-            alert("Please select the record And Region")
-        }
+        var param = 'MappingQuadrant:' + quad + ';' + v_dr_code;
+        DataView1.PerformCallback({ act: param });
         popupMappingQuadrant.Hide();
-        v_dr_code = ""
-        DataView1.UnselectRows();
         cbMappingQuadrant.SetValue(null);
+    }
+
+    function DataView1_EndCallBack(s, e) {
+        if (s.cpMessage != "undefined") {
+            alert(s.cpMessage);
+            s.cpMessage = "undefined";
+            v_dr_code = "";
+            SelectedKeys.length = 0;
+            DataView1.UnselectRows();
+        }
     }
 </script>
 
@@ -406,24 +404,4 @@
                                                                     End Sub)
                               End Sub).GetHtml()
 
-<script type="text/javascript">
-
-    var callbackInitDate;
-    var command;
-
-    function OnStartCallback(s, e) {
-        callbackInitDate = new Date();
-        command = e.command;
-    }
-    function OnEndCallback(s, e) {
-        var currentDate = new Date();
-        var time = currentDate - callbackInitDate;
-    }
-
-    function msg_error() {
-        PopupControl.PerformCallback();
-        PopupControl.Show();
-    }
-
-</script>
 

@@ -1,14 +1,7 @@
-﻿@code
-    Html.EnableClientValidation()
-    Html.EnableUnobtrusiveJavaScript()
-
-    Dim msg As String
-    msg = TempData("msg")
-
-End Code
-@Html.DevExpress().GridView(Sub(settings)
+﻿@Html.DevExpress().GridView(Sub(settings)
                                 settings.Name = "DataView1"
                                 settings.CallbackRouteValues = New With {.Controller = "MasterDoctor", .Action = "ViewMasterDoctor"}
+                                settings.ClientSideEvents.EndCallback = "DataView1_EndCallBack"
                                 settings.Width = System.Web.UI.WebControls.Unit.Percentage(100)
                                 settings.SettingsPager.PageSize = 8
                                 settings.Settings.ShowGroupPanel = True
@@ -24,7 +17,6 @@ End Code
                                 settings.Styles.Footer.Font.Size = 8
                                 settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center
                                 settings.CommandColumn.Visible = True
-                                settings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.Page
                                 settings.CommandColumn.ShowSelectCheckbox = True
                                 settings.CommandColumn.VisibleIndex = 0
                                 settings.SettingsContextMenu.Enabled = True
@@ -38,6 +30,7 @@ End Code
                                 settings.SettingsEditing.UpdateRowRouteValues = New With {.Controller = "MasterDoctor", .Action = "MasterDoctorUpdate"}
                                 settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm
                                 settings.SettingsBehavior.ConfirmDelete = True
+                                settings.SettingsBehavior.AllowSelectByRowClick = True
                                 settings.SettingsPopup.EditForm.Width = 800
                                 settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter
                                 settings.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter
@@ -426,11 +419,6 @@ End Code
                                                      End Sub)
                                      
                                 settings.CommandColumn.ShowSelectCheckbox = True
-                                settings.ClientSideEvents.Init = "function(s, e) { s.PerformCallback(); }"
-                                settings.ClientSideEvents.BeginCallback = "function(s, e) { OnStartCallback(s, e); }"
-                                settings.ClientSideEvents.EndCallback = "function(s, e) { OnEndCallback(s, e); }"
-
-                                settings.ClientSideEvents.SelectionChanged = "SelectionChanged"
                                      
                                 settings.FillContextMenuItems = Sub(s, e)
                                                                     If (e.MenuType = GridViewContextMenuType.Rows) Then
@@ -444,33 +432,13 @@ End Code
                                                                 End Sub
                                 settings.ClientSideEvents.ContextMenuItemClick = "function(s,e) { OnContextMenuItemClick(s, e); }"
                                 settings.ClientSideEvents.ContextMenu = "OnContextMenu"
+                                
+                                settings.CustomJSProperties = Sub(s, e)
+                                                                  If ViewData("RequestFlag") IsNot Nothing Then
+                                                                      e.Properties("cpMessage") = ViewData("RequestFlag").ToString()
+                                                                  End If
+                                                              End Sub
+                                
+                                     
+                                settings.ClientSideEvents.SelectionChanged = "SelectionChanged"
                             End Sub).Bind(Model).GetHtml()
-
-
-@code
-
-    If msg <> "" Then
-        TempData("msg") = ""
-        Html.DevExpress().PopupControl(
-            Sub(settings)
-                    settings.Name = "PopupControl"
-                    settings.ShowHeader = True
-                    settings.ShowOnPageLoad = True
-                    settings.AllowDragging = True
-                    settings.CloseAction = CloseAction.OuterMouseClick
-                    settings.CloseOnEscape = True
-                    settings.Modal = True
-                    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter
-                    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter
-                    settings.SetHeaderTemplateContent(
-                        Sub()
-                                ViewContext.Writer.Write("<div style='font-size:small;'>Information</div>")
-                        End Sub)
-
-                    settings.SetContent(
-                        Sub()
-                                ViewContext.Writer.Write(msg)
-                        End Sub)
-            End Sub).GetHtml()
-    End If
-End Code

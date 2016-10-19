@@ -27,6 +27,7 @@ Public Class MasterBoController
     <ValidateInput(False)> _
     Public Function ViewMasterBO() As ActionResult
         Try
+            ViewData("RequestFlag") = "undefined"
             Dim repo = New Im_bo()
             Dim model = repo.GetAllMasterBO()
             Return PartialView("~/Views/Master/MasterBO/ViewMasterBO.vbhtml", model)
@@ -85,11 +86,11 @@ Public Class MasterBoController
                 mdl.bo_status = collection("bo_status").Replace("""", "")
             End If
             repo.Insert(mdl)
-            TempData("msg") = "Add Master BO Success"
+            ViewData("RequestFlag") = "Add Master BO Success"
             Dim model = repo.GetAllMasterBO()
             Return PartialView("~/Views/Master/MasterBO/ViewMasterBO.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Add Master BO Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Add Master BO Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterBO()
             Return PartialView("~/Views/Master/MasterBO/ViewMasterBO.vbhtml", model)
         End Try
@@ -122,11 +123,11 @@ Public Class MasterBoController
                 mdl.bo_status = collection("bo_status").Replace("""", "")
             End If
             repo.Update(mdl)
-            TempData("msg") = "Update Master BO Success"
+            ViewData("RequestFlag") = "Update Master BO Success"
             Dim model = repo.GetAllMasterBO()
             Return PartialView("~/Views/Master/MasterBO/ViewMasterBO.vbhtml", model)
         Catch ex As Exception
-            TempData("msg") = "Update Master BO Failed, Please Check Your Input Field"
+            ViewData("RequestFlag") = "Update Master BO Failed, Please Check Your Input Field"
             Dim model = repo.GetAllMasterBO()
             Return PartialView("~/Views/Master/MasterBO/ViewMasterBO.vbhtml", model)
         End Try

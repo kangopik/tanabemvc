@@ -1,26 +1,36 @@
 ﻿@ModelType System.Collections.IEnumerable
 
 <script type="text/javascript">
-    var v_dr_code = "";
-    var v_date = "";
-    var v_year = "";
+    var SelectedKeys = new Array();
+    var v_dr_code;
 
     function SelectionChanged(s, e) {
-        gridSalesPlan.GetSelectedFieldValues("dr_code", GetSelectedFieldValuesDr);
-        gridSalesPlan.GetSelectedFieldValues("sales_date_plan", GetSelectedFieldValuesDate);
-        gridSalesPlan.GetSelectedFieldValues("sales_year_plan", GetSelectedFieldValuesYear);
+        var key = s.GetRowKey(e.visibleIndex);
+        if (e.isSelected)
+            SelectedKeys.push(key);
+        else
+            SelectedKeys = RemoveElementFromArray(SelectedKeys, key);
+
+        v_dr_code = "";
+        for (var index = 0; index < SelectedKeys.length; index++) {
+            v_dr_code += SelectedKeys[index] + ",";
+        }
+        if (v_dr_code.length > 0) {
+            v_dr_code = v_dr_code.substring(0, v_dr_code.length - 1);
+        }
     }
 
-    function GetSelectedFieldValuesDr(values) {
-        v_dr_code = values;
-    }
-
-    function GetSelectedFieldValuesDate(values) {
-        v_date = values;
-    }
-
-    function GetSelectedFieldValuesYear(values) {
-        v_year = values;
+    function RemoveElementFromArray(array, element) {
+        var index = array.indexOf(element);
+        if (index < 0) return array;
+        array[index] = null;
+        var result = [];
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] === null)
+                continue;
+            result.push(array[i]);
+        }
+        return result;
     }
 
     function OnExport(s, e) {
@@ -124,15 +134,17 @@
                 popupMapping.Hide();
                 gridSalesPlan.UnselectAllRowsOnPage();
                 gridSalesPlan.Refresh();
-                cbProductMapping.SetValue(null);
                 s.cpCloseMapping = "undefined";
+                v_dr_code = "";
+                SelectedKeys.length = 0;
             } else if (s.cpCloseMapping == "mapping_error") {
                 alert("There is error on mapping data");
                 popupMapping.Hide();
                 gridSalesPlan.UnselectAllRowsOnPage();
                 gridSalesPlan.Refresh();
-                cbProductMapping.SetValue(null);
                 s.cpCloseMapping = "undefined";
+                v_dr_code = "";
+                SelectedKeys.length = 0;
             }
         }
         if (s.cpCekGrid != "") {
@@ -148,15 +160,15 @@
 
     function OnContextMenuItemClick(sender, args) {
         if (args.item.name == "Mapping") {
-            popupMapping.Show();
+                popupMapping.Show();
         }
     }
 
     function OnContextMenu(s, e) {
         if (e.objectType == "row") {
-            var menuItemSelected = e.menu.GetItemByName("Mapping");
-            var isRowSelected = s.IsRowSelectedOnPage(e.index);
-            menuItemSelected.SetEnabled(isRowSelected);
+                var menuItemSelected = e.menu.GetItemByName("Mapping");
+                var isRowSelected = s.IsRowSelectedOnPage(e.index);
+                menuItemSelected.SetEnabled(isRowSelected);
         }
     }
 
@@ -175,11 +187,8 @@
         var prd = cbProductMapping.GetValue();
         var trg = txTarget.GetValue();
         var not = txNote.GetValue();
-        if (v_dr_code != "") {
-            var param = 'mapping;' + v_date + ';' + v_year + ';' + prd + ';' + trg + ';' + not + ';' + v_dr_code;
-            gridSalesPlan.PerformCallback({ prm: param });
-            v_dr_code = ""
-        }
+        var param = 'mapping;' + ';' + ';' + prd + ';' + trg + ';' + not + ';' + v_dr_code;
+        gridSalesPlan.PerformCallback({ prm: param });
     }
 
     function periode_ValueChanged(s, e) {
