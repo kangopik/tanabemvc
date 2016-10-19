@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <group Text="VISIT">
+    <item Text="Windows" />
+    <item Text="Linux" />
+    <item Text="Mac OS" />
+  </group>
+  <group Text="SALES">
+    <item Text="SQL Server 2005" />
+    <item Text="SQL Server 2008" />
+    <item Text="SQL Server 2008 R2" />
+  </group>
+  <group Text="VERIFICATION">
+    <item Text="Chrome" />
+    <item Text="Firefox" />
+    <item Text="Internet Explorer" />
+    <item Text="Safari" />
+    <item Text="Opera" />
+  </group>
+  <group Text="REPORT">
+    <item Text="C#" />
+    <item Text="Visual Basic" />
+    <item Text="C++" />
+    <item Text="Java" />
+    <item Text="PHP" />
+  </group>
+  <group Text="ADMIN">
+    <item Text="C#" />
+    <item Text="Visual Basic" />
+    <item Text="C++" />
+    <item Text="Java" />
+    <item Text="PHP" />
+  </group>
+</menu>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VisitPivotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="SP_SELECT_VISIT_PIVOT_REP_DASHBOARD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rep_id" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="VisitPivotModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VisitPivotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VisitPivotEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="SP_SELECT_VISIT_PIVOT_REP_DASHBOARD" ReturnType="Collection(VisitPivotModel.SP_SELECT_VISIT_PIVOT_REP_DASHBOARD_Result)">
+            <Parameter Name="rep_id" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_SELECT_VISIT_PIVOT_REP_DASHBOARD_Result">
+          <Property Type="String" Name="rep_id" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="REP_NAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="POSITION" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="DIVISION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BO" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="SBO" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="AM" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="REGION" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="RM" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="visit_id" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PLAN" Nullable="false" />
+          <Property Type="Int32" Name="REALIZATION" Nullable="false" />
+          <Property Type="String" Name="MONTH" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="DATE" Nullable="true" />
+          <Property Type="Int32" Name="DR_CODE" Nullable="true" />
+          <Property Type="String" Name="DOC_NAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SPEC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="SUB_SPEC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="QUADRANT" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="MONITORING" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="DK_LK" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="AREA_MIS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CATEGORY" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CHANNEL" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="INFO" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="SP" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="SP_VALUE" Nullable="true" />
+          <Property Type="Int32" Name="TAN" Nullable="false" />
+          <Property Type="Int32" Name="HER_CD" Nullable="false" />
+          <Property Type="Int32" Name="HER_INJ" Nullable="false" />
+          <Property Type="Int32" Name="LIV" Nullable="false" />
+          <Property Type="Int32" Name="MAIN" Nullable="false" />
+          <Property Type="Int32" Name="TAON" Nullable="false" />
+          <Property Type="Int32" Name="ADO" Nullable="false" />
+          <Property Type="Int32" Name="ASP_K" Nullable="false" />
+          <Property Type="Int32" Name="INO" Nullable="false" />
+          <Property Type="Int32" Name="OTHERS" Nullable="false" />
+          <Property Type="Int32" Name="REMICADE" Nullable="false" />
+          <Property Type="Int32" Name="SIMPONI" Nullable="false" />
+          <Property Type="Int32" Name="TAN_BPJS" Nullable="false" />
+          <Property Type="Int32" Name="HER_CD_BPJS" Nullable="false" />
+          <Property Type="Int32" Name="HER_INJ_BPJS" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VisitPivotModelStoreContainer" CdmEntityContainer="VisitPivotEntities" >
+          <FunctionImportMapping FunctionImportName="SP_SELECT_VISIT_PIVOT_REP_DASHBOARD" FunctionName="VisitPivotModel.Store.SP_SELECT_VISIT_PIVOT_REP_DASHBOARD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VisitPivotModel.SP_SELECT_VISIT_PIVOT_REP_DASHBOARD_Result">
+                <ScalarProperty Name="rep_id" ColumnName="rep_id" />
+                <ScalarProperty Name="REP_NAME" ColumnName="REP NAME" />
+                <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+                <ScalarProperty Name="BO" ColumnName="BO" />
+                <ScalarProperty Name="SBO" ColumnName="SBO" />
+                <ScalarProperty Name="AM" ColumnName="AM" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="RM" ColumnName="RM" />
+                <ScalarProperty Name="visit_id" ColumnName="visit_id" />
+                <ScalarProperty Name="PLAN" ColumnName="PLAN" />
+                <ScalarProperty Name="REALIZATION" ColumnName="REALIZATION" />
+                <ScalarProperty Name="MONTH" ColumnName="MONTH" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="DR_CODE" ColumnName="DR CODE" />
+                <ScalarProperty Name="DOC_NAME" ColumnName="DOC.NAME" />
+                <ScalarProperty Name="SPEC" ColumnName="SPEC" />
+                <ScalarProperty Name="SUB_SPEC" ColumnName="SUB-SPEC" />
+                <ScalarProperty Name="QUADRANT" ColumnName="QUADRANT" />
+                <ScalarProperty Name="MONITORING" ColumnName="MONITORING" />
+                <ScalarProperty Name="DK_LK" ColumnName="DK/LK" />
+                <ScalarProperty Name="AREA_MIS" ColumnName="AREA MIS" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="CHANNEL" ColumnName="CHANNEL" />
+                <ScalarProperty Name="INFO" ColumnName="INFO" />
+                <ScalarProperty Name="SP" ColumnName="SP" />
+                <ScalarProperty Name="SP_VALUE" ColumnName="SP VALUE" />
+                <ScalarProperty Name="TAN" ColumnName="TAN" />
+                <ScalarProperty Name="HER_CD" ColumnName="HER-CD" />
+                <ScalarProperty Name="HER_INJ" ColumnName="HER-INJ" />
+                <ScalarProperty Name="LIV" ColumnName="LIV" />
+                <ScalarProperty Name="MAIN" ColumnName="MAIN" />
+                <ScalarProperty Name="TAON" ColumnName="TAON" />
+                <ScalarProperty Name="ADO" ColumnName="ADO" />
+                <ScalarProperty Name="ASP_K" ColumnName="ASP-K" />
+                <ScalarProperty Name="INO" ColumnName="INO" />
+                <ScalarProperty Name="OTHERS" ColumnName="OTHERS" />
+                <ScalarProperty Name="REMICADE" ColumnName="REMICADE" />
+                <ScalarProperty Name="SIMPONI" ColumnName="SIMPONI" />
+                <ScalarProperty Name="TAN_BPJS" ColumnName="TAN-BPJS" />
+                <ScalarProperty Name="HER_CD_BPJS" ColumnName="HER.CD-BPJS" />
+                <ScalarProperty Name="HER_INJ_BPJS" ColumnName="HER.INJ-BPJS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

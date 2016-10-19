@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VisitPivotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VisitPivotEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_SELECT_VISIT_PIVOT_REP_DASHBOARD" ReturnType="Collection(VisitPivotModel.SP_SELECT_VISIT_PIVOT_REP_DASHBOARD_Result)">
+      <Parameter Name="rep_id" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_SELECT_VISIT_PIVOT_REP_DASHBOARD_Result">
+    <Property Type="String" Name="rep_id" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="REP_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="POSITION" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="DIVISION" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BO" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SBO" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="AM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="REGION" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="RM" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="visit_id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PLAN" Nullable="false" />
+    <Property Type="Int32" Name="REALIZATION" Nullable="false" />
+    <Property Type="String" Name="MONTH" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="DATE" Nullable="true" />
+    <Property Type="Int32" Name="DR_CODE" Nullable="true" />
+    <Property Type="String" Name="DOC_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SPEC" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SUB_SPEC" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="QUADRANT" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MONITORING" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="DK_LK" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="AREA_MIS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CATEGORY" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CHANNEL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="INFO" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SP" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="SP_VALUE" Nullable="true" />
+    <Property Type="Int32" Name="TAN" Nullable="false" />
+    <Property Type="Int32" Name="HER_CD" Nullable="false" />
+    <Property Type="Int32" Name="HER_INJ" Nullable="false" />
+    <Property Type="Int32" Name="LIV" Nullable="false" />
+    <Property Type="Int32" Name="MAIN" Nullable="false" />
+    <Property Type="Int32" Name="TAON" Nullable="false" />
+    <Property Type="Int32" Name="ADO" Nullable="false" />
+    <Property Type="Int32" Name="ASP_K" Nullable="false" />
+    <Property Type="Int32" Name="INO" Nullable="false" />
+    <Property Type="Int32" Name="OTHERS" Nullable="false" />
+    <Property Type="Int32" Name="REMICADE" Nullable="false" />
+    <Property Type="Int32" Name="SIMPONI" Nullable="false" />
+    <Property Type="Int32" Name="TAN_BPJS" Nullable="false" />
+    <Property Type="Int32" Name="HER_CD_BPJS" Nullable="false" />
+    <Property Type="Int32" Name="HER_INJ_BPJS" Nullable="false" />
+  </ComplexType>
+</Schema>

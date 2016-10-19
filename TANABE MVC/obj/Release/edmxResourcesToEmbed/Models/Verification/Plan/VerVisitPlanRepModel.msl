@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VerVisitPlanRepModelStoreContainer" CdmEntityContainer="VerVisitPlanRepEntities">
+    <FunctionImportMapping FunctionImportName="SP_SELECT_REP_FOR_VERIFICATION" FunctionName="VerVisitPlanRepModel.Store.SP_SELECT_REP_FOR_VERIFICATION">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VerVisitPlanRepModel.SP_SELECT_REP_FOR_VERIFICATION_Result">
+          <ScalarProperty Name="rep_id" ColumnName="rep_id" />
+          <ScalarProperty Name="rep_name" ColumnName="rep_name" />
+          <ScalarProperty Name="rep_rm" ColumnName="rep_rm" />
+          <ScalarProperty Name="nama_rm" ColumnName="nama_rm" />
+          <ScalarProperty Name="email_rm" ColumnName="email_rm" />
+          <ScalarProperty Name="rep_am" ColumnName="rep_am" />
+          <ScalarProperty Name="nama_am" ColumnName="nama_am" />
+          <ScalarProperty Name="email_am" ColumnName="email_am" />
+          <ScalarProperty Name="rep_region" ColumnName="rep_region" />
+          <ScalarProperty Name="rep_bo" ColumnName="rep_bo" />
+          <ScalarProperty Name="rep_sbo" ColumnName="rep_sbo" />
+          <ScalarProperty Name="rep_position" ColumnName="rep_position" />
+          <ScalarProperty Name="rep_division" ColumnName="rep_division" />
+          <ScalarProperty Name="rep_email" ColumnName="rep_email" />
+          <ScalarProperty Name="rep_joint_date" ColumnName="rep_joint_date" />
+          <ScalarProperty Name="rep_status" ColumnName="rep_status" />
+          <ScalarProperty Name="rep_inactive_date" ColumnName="rep_inactive_date" />
+          <ScalarProperty Name="rep_full_name" ColumnName="rep_full_name" />
+          <ScalarProperty Name="sbo_description" ColumnName="sbo_description" />
+          <ScalarProperty Name="bo_description" ColumnName="bo_description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

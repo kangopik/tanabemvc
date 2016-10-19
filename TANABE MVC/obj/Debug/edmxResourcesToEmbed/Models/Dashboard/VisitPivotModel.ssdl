@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VisitPivotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="SP_SELECT_VISIT_PIVOT_REP_DASHBOARD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rep_id" Type="char" Mode="In" />
+  </Function>
+  <EntityContainer Name="VisitPivotModelStoreContainer" />
+</Schema>

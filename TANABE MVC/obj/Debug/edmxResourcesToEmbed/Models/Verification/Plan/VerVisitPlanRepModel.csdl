@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VerVisitPlanRepModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VerVisitPlanRepEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_SELECT_REP_FOR_VERIFICATION" ReturnType="Collection(VerVisitPlanRepModel.SP_SELECT_REP_FOR_VERIFICATION_Result)">
+      <Parameter Name="department" Mode="In" Type="String" />
+      <Parameter Name="rep_position" Mode="In" Type="String" />
+      <Parameter Name="rep_id" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_SELECT_REP_FOR_VERIFICATION_Result">
+    <Property Type="String" Name="rep_id" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="rep_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rep_rm" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nama_rm" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email_rm" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rep_am" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="nama_am" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email_am" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rep_region" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="rep_bo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="rep_sbo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="rep_position" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="rep_division" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rep_email" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="rep_joint_date" Nullable="true" />
+    <Property Type="Int32" Name="rep_status" Nullable="true" />
+    <Property Type="DateTime" Name="rep_inactive_date" Nullable="true" />
+    <Property Type="String" Name="rep_full_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sbo_description" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bo_description" Nullable="true" MaxLength="250" />
+  </ComplexType>
+</Schema>

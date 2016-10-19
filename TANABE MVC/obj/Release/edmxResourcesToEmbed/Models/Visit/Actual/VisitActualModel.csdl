@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VisitActualModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VisitActualEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_SELECT_SUBMITTED_VISIT" ReturnType="Collection(VisitActualModel.SP_SELECT_SUBMITTED_VISIT_Result)">
+      <Parameter Name="rep_id" Mode="In" Type="String" />
+      <Parameter Name="day" Mode="In" Type="Int32" />
+      <Parameter Name="month" Mode="In" Type="Int32" />
+      <Parameter Name="year" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_SELECT_SUBMITTED_VISIT_Result">
+    <Property Type="String" Name="visit_id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rep_id" Nullable="true" MaxLength="5" />
+    <Property Type="DateTime" Name="visit_date_plan" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="visit_plan" Nullable="true" />
+    <Property Type="Int32" Name="visit_realization" Nullable="true" />
+    <Property Type="Int32" Name="dr_code" Nullable="true" />
+    <Property Type="String" Name="dr_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_spec" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_sub_spec" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_quadrant" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_monitoring" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="dr_dk_lk" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_area_mis" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_category" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_chanel" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="visit_date_realization_saved" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="visit_date_plan_saved" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="visit_date_plan_updated" Nullable="true" Precision="23" />
+    <Property Type="String" Name="visit_info" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="visit_sp" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="visit_sp_value" Nullable="true" />
+    <Property Type="Int32" Name="visit_plan_verification_status" Nullable="false" />
+    <Property Type="String" Name="visit_plan_verification_by" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="visit_plan_verification_date" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="visit_real_verification_status" Nullable="false" />
+    <Property Type="String" Name="visit_real_verification_by" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="visit_real_verification_date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="dr_address" Nullable="true" MaxLength="250" />
+  </ComplexType>
+</Schema>

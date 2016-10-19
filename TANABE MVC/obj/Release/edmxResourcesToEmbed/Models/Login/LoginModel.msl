@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LoginModelStoreContainer" CdmEntityContainer="LoginEntities">
+    <EntitySetMapping Name="tUser">
+      <EntityTypeMapping TypeName="LoginModel.tUser">
+        <MappingFragment StoreEntitySet="tUser">
+          <ScalarProperty Name="uName" ColumnName="uName" />
+          <ScalarProperty Name="Kode_Bagian" ColumnName="Kode Bagian" />
+          <ScalarProperty Name="Nomor_Induk" ColumnName="Nomor Induk" />
+          <ScalarProperty Name="Kode_Level" ColumnName="Kode Level" />
+          <ScalarProperty Name="Nama_Seksi" ColumnName="Nama Seksi" />
+          <ScalarProperty Name="Departemen" ColumnName="Departemen" />
+          <ScalarProperty Name="Level_No" ColumnName="Level No" />
+          <ScalarProperty Name="Status_Aktif" ColumnName="Status Aktif" />
+          <ScalarProperty Name="Last_Login" ColumnName="Last Login" />
+          <ScalarProperty Name="Headquarter" ColumnName="Headquarter" />
+          <ScalarProperty Name="Pesan" ColumnName="Pesan" />
+          <ScalarProperty Name="Desktop_App" ColumnName="Desktop App" />
+          <ScalarProperty Name="Web_App" ColumnName="Web App" />
+          <ScalarProperty Name="Kode_Office" ColumnName="Kode Office" />
+          <ScalarProperty Name="userPwd" ColumnName="userPwd" />
+          <ScalarProperty Name="Min_Panjang_Pwd" ColumnName="Min_Panjang_Pwd" />
+          <ScalarProperty Name="Terakhir_Ganti_Pwd" ColumnName="Terakhir_Ganti_Pwd" />
+          <ScalarProperty Name="Lama_Ganti_Pwd" ColumnName="Lama_Ganti_Pwd" />
+          <ScalarProperty Name="Email_Address" ColumnName="Email_Address" />
+          <ScalarProperty Name="last_login_decision" ColumnName="last_login_decision" />
+          <ScalarProperty Name="user_right" ColumnName="user_right" />
+          <ScalarProperty Name="sec_user_id" ColumnName="sec_user_id" />
+          <ScalarProperty Name="sec_role_id" ColumnName="sec_role_id" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="count_wrong_password" ColumnName="count_wrong_password" />
+          <ScalarProperty Name="section_id" ColumnName="section_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

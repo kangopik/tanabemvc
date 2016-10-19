@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="produksiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tUser">
+    <Key>
+      <PropertyRef Name="uName" />
+    </Key>
+    <Property Name="uName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="uPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Kode_Bagian" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nomor_Induk" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Kode_Level" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nama_Seksi" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Departemen" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Level_No" Type="Int32" />
+    <Property Name="Status_Aktif" Type="Int32" />
+    <Property Name="Last_Login" Type="DateTime" Precision="0" />
+    <Property Name="Headquarter" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Pesan" Type="Int16" Nullable="false" />
+    <Property Name="Desktop_App" Type="Int16" />
+    <Property Name="Web_App" Type="Int16" />
+    <Property Name="Kode_Office" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="userPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Min_Panjang_Pwd" Type="Int32" />
+    <Property Name="Terakhir_Ganti_Pwd" Type="DateTime" Precision="3" />
+    <Property Name="Lama_Ganti_Pwd" Type="Int32" />
+    <Property Name="Email_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="last_login_decision" Type="DateTime" Precision="0" />
+    <Property Name="user_right" Type="Int32" />
+    <Property Name="sec_user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sec_role_id" Type="Int32" />
+    <Property Name="status_id" Type="Int32" />
+    <Property Name="count_wrong_password" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="LoginEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tUsers" EntityType="Self.tUser" />
+  </EntityContainer>
+</Schema>

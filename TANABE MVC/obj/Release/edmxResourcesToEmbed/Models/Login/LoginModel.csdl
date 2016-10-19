@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LoginModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tUser">
+    <Key>
+      <PropertyRef Name="uName" />
+    </Key>
+    <Property Name="uName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Kode_Bagian" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Nomor_Induk" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Kode_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Nama_Seksi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Departemen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Level_No" Type="Double" />
+    <Property Name="Status_Aktif" Type="Double" />
+    <Property Name="Last_Login" Type="DateTime" Precision="3" />
+    <Property Name="Headquarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pesan" Type="Double" />
+    <Property Name="Desktop_App" Type="Double" />
+    <Property Name="Web_App" Type="Double" />
+    <Property Name="Kode_Office" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="userPwd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Min_Panjang_Pwd" Type="Double" />
+    <Property Name="Terakhir_Ganti_Pwd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Lama_Ganti_Pwd" Type="Double" />
+    <Property Name="Email_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="last_login_decision" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="user_right" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="sec_user_id" Type="Double" />
+    <Property Name="sec_role_id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="status_id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="count_wrong_password" Type="Double" />
+    <Property Name="section_id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="LoginEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tUser" EntityType="Self.tUser" />
+  </EntityContainer>
+</Schema>

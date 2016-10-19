@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LoginModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tUser">
+    <Key>
+      <PropertyRef Name="uName" />
+    </Key>
+    <Property Name="uName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Kode Bagian" Type="nvarchar" MaxLength="255" />
+    <Property Name="Nomor Induk" Type="nvarchar" MaxLength="255" />
+    <Property Name="Kode Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Nama Seksi" Type="nvarchar" MaxLength="255" />
+    <Property Name="Departemen" Type="nvarchar" MaxLength="255" />
+    <Property Name="Level No" Type="float" />
+    <Property Name="Status Aktif" Type="float" />
+    <Property Name="Last Login" Type="datetime" />
+    <Property Name="Headquarter" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pesan" Type="float" />
+    <Property Name="Desktop App" Type="float" />
+    <Property Name="Web App" Type="float" />
+    <Property Name="Kode Office" Type="nvarchar" MaxLength="255" />
+    <Property Name="userPwd" Type="nvarchar" MaxLength="255" />
+    <Property Name="Min_Panjang_Pwd" Type="float" />
+    <Property Name="Terakhir_Ganti_Pwd" Type="nvarchar" MaxLength="255" />
+    <Property Name="Lama_Ganti_Pwd" Type="float" />
+    <Property Name="Email_Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="last_login_decision" Type="nvarchar" MaxLength="255" />
+    <Property Name="user_right" Type="nvarchar" MaxLength="255" />
+    <Property Name="sec_user_id" Type="float" />
+    <Property Name="sec_role_id" Type="nvarchar" MaxLength="255" />
+    <Property Name="status_id" Type="nvarchar" MaxLength="255" />
+    <Property Name="count_wrong_password" Type="float" />
+    <Property Name="section_id" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="LoginModelStoreContainer">
+    <EntitySet Name="tUser" EntityType="Self.tUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

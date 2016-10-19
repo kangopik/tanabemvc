@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="produksiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tUser">
+    <Key>
+      <PropertyRef Name="uName" />
+    </Key>
+    <Property Name="uName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="uPwd" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Kode Bagian" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="Nomor Induk" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Kode Level" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Nama Seksi" Type="varchar" MaxLength="25" />
+    <Property Name="Departemen" Type="varchar" MaxLength="25" />
+    <Property Name="Level No" Type="int" />
+    <Property Name="Status Aktif" Type="int" />
+    <Property Name="Last Login" Type="smalldatetime" />
+    <Property Name="Headquarter" Type="char" MaxLength="4" />
+    <Property Name="Pesan" Type="smallint" Nullable="false" />
+    <Property Name="Desktop App" Type="smallint" />
+    <Property Name="Web App" Type="smallint" />
+    <Property Name="Kode Office" Type="char" MaxLength="4" />
+    <Property Name="userPwd" Type="varchar" MaxLength="50" />
+    <Property Name="Min_Panjang_Pwd" Type="int" />
+    <Property Name="Terakhir_Ganti_Pwd" Type="datetime" />
+    <Property Name="Lama_Ganti_Pwd" Type="int" />
+    <Property Name="Email_Address" Type="varchar" MaxLength="50" />
+    <Property Name="last_login_decision" Type="smalldatetime" />
+    <Property Name="user_right" Type="int" />
+    <Property Name="sec_user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sec_role_id" Type="int" />
+    <Property Name="status_id" Type="int" />
+    <Property Name="count_wrong_password" Type="int" />
+  </EntityType>
+  <EntityContainer Name="produksiModelStoreContainer">
+    <EntitySet Name="tUser" EntityType="Self.tUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

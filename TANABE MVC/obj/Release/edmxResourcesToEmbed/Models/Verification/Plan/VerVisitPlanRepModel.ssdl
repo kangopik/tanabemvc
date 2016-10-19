@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VerVisitPlanRepModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="SP_SELECT_REP_FOR_VERIFICATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="department" Type="char" Mode="In" />
+    <Parameter Name="rep_position" Type="char" Mode="In" />
+    <Parameter Name="rep_id" Type="char" Mode="In" />
+  </Function>
+  <EntityContainer Name="VerVisitPlanRepModelStoreContainer" />
+</Schema>

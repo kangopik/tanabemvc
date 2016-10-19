@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VerVisitPlanPartialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VerVisitPlanPartialEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_VERIFICATION_VISIT_PLAN">
+      <Parameter Name="visit_id" Mode="In" Type="String" />
+      <Parameter Name="visit_plan_verification_by" Mode="In" Type="String" />
+      <Parameter Name="visit_plan_verification_date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

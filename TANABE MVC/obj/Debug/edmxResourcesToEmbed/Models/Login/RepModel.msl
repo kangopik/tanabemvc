@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RepModelStoreContainer" CdmEntityContainer="RepEntities">
+    <EntitySetMapping Name="m_rep">
+      <EntityTypeMapping TypeName="RepModel.m_rep">
+        <MappingFragment StoreEntitySet="m_rep">
+          <ScalarProperty Name="rep_id" ColumnName="rep_id" />
+          <ScalarProperty Name="rep_name" ColumnName="rep_name" />
+          <ScalarProperty Name="rep_rm" ColumnName="rep_rm" />
+          <ScalarProperty Name="rep_am" ColumnName="rep_am" />
+          <ScalarProperty Name="rep_region" ColumnName="rep_region" />
+          <ScalarProperty Name="rep_bo" ColumnName="rep_bo" />
+          <ScalarProperty Name="rep_sbo" ColumnName="rep_sbo" />
+          <ScalarProperty Name="rep_position" ColumnName="rep_position" />
+          <ScalarProperty Name="rep_division" ColumnName="rep_division" />
+          <ScalarProperty Name="rep_email" ColumnName="rep_email" />
+          <ScalarProperty Name="rep_joint_date" ColumnName="rep_joint_date" />
+          <ScalarProperty Name="rep_status" ColumnName="rep_status" />
+          <ScalarProperty Name="rep_inactive_date" ColumnName="rep_inactive_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

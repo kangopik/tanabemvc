@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RepModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="m_rep">
+    <Key>
+      <PropertyRef Name="rep_id" />
+    </Key>
+    <Property Name="rep_id" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="rep_name" Type="varchar" MaxLength="50" />
+    <Property Name="rep_rm" Type="char" MaxLength="5" />
+    <Property Name="rep_am" Type="char" MaxLength="5" />
+    <Property Name="rep_region" Type="char" MaxLength="5" />
+    <Property Name="rep_bo" Type="char" MaxLength="10" />
+    <Property Name="rep_sbo" Type="char" MaxLength="10" />
+    <Property Name="rep_position" Type="char" MaxLength="3" />
+    <Property Name="rep_division" Type="varchar" MaxLength="50" />
+    <Property Name="rep_email" Type="varchar" MaxLength="50" />
+    <Property Name="rep_joint_date" Type="date" />
+    <Property Name="rep_status" Type="int" />
+    <Property Name="rep_inactive_date" Type="date" />
+  </EntityType>
+  <EntityContainer Name="RepModelStoreContainer">
+    <EntitySet Name="m_rep" EntityType="Self.m_rep" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

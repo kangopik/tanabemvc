@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DoctorListModelStoreContainer" CdmEntityContainer="DoctorListEntities">
+    <FunctionImportMapping FunctionImportName="SP_SELECT_DOCTOR_LIST" FunctionName="DoctorListModel.Store.SP_SELECT_DOCTOR_LIST">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DoctorListModel.SP_SELECT_DOCTOR_LIST_Result">
+          <ScalarProperty Name="dr_code" ColumnName="dr_code" />
+          <ScalarProperty Name="dr_sbo" ColumnName="dr_sbo" />
+          <ScalarProperty Name="dr_bo" ColumnName="dr_bo" />
+          <ScalarProperty Name="dr_region" ColumnName="dr_region" />
+          <ScalarProperty Name="dr_rep" ColumnName="dr_rep" />
+          <ScalarProperty Name="rep_name" ColumnName="rep_name" />
+          <ScalarProperty Name="dr_am" ColumnName="dr_am" />
+          <ScalarProperty Name="am_name" ColumnName="am_name" />
+          <ScalarProperty Name="rep_position" ColumnName="rep_position" />
+          <ScalarProperty Name="dr_name" ColumnName="dr_name" />
+          <ScalarProperty Name="dr_spec" ColumnName="dr_spec" />
+          <ScalarProperty Name="dr_sub_spec" ColumnName="dr_sub_spec" />
+          <ScalarProperty Name="dr_quadrant" ColumnName="dr_quadrant" />
+          <ScalarProperty Name="dr_monitoring" ColumnName="dr_monitoring" />
+          <ScalarProperty Name="dr_address" ColumnName="dr_address" />
+          <ScalarProperty Name="dr_area_mis" ColumnName="dr_area_mis" />
+          <ScalarProperty Name="dr_sum" ColumnName="dr_sum" />
+          <ScalarProperty Name="dr_category" ColumnName="dr_category" />
+          <ScalarProperty Name="dr_sub_category" ColumnName="dr_sub_category" />
+          <ScalarProperty Name="dr_chanel" ColumnName="dr_chanel" />
+          <ScalarProperty Name="dr_day_visit" ColumnName="dr_day_visit" />
+          <ScalarProperty Name="dr_visiting_hour" ColumnName="dr_visiting_hour" />
+          <ScalarProperty Name="dr_number_patient" ColumnName="dr_number_patient" />
+          <ScalarProperty Name="dr_kol_not" ColumnName="dr_kol_not" />
+          <ScalarProperty Name="dr_gender" ColumnName="dr_gender" />
+          <ScalarProperty Name="dr_phone" ColumnName="dr_phone" />
+          <ScalarProperty Name="dr_email" ColumnName="dr_email" />
+          <ScalarProperty Name="dr_birthday" ColumnName="dr_birthday" />
+          <ScalarProperty Name="dr_dk_lk" ColumnName="dr_dk_lk" />
+          <ScalarProperty Name="dr_used_session" ColumnName="dr_used_session" />
+          <ScalarProperty Name="is_used" ColumnName="is_used" />
+          <ScalarProperty Name="dr_used_remaining" ColumnName="dr_used_remaining" />
+          <ScalarProperty Name="dr_used_month_session" ColumnName="dr_used_month_session" />
+          <ScalarProperty Name="dr_status" ColumnName="dr_status" />
+          <ScalarProperty Name="is_used_on_sales" ColumnName="is_used_on_sales" />
+          <ScalarProperty Name="dr_sales_session" ColumnName="dr_sales_session" />
+          <ScalarProperty Name="dr_sales_month_session" ColumnName="dr_sales_month_session" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

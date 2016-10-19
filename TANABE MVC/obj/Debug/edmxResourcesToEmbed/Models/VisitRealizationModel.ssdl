@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VisitRealizationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mva.dbo.v_visit_plan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_visit_plan">
+    <Key>
+      <PropertyRef Name="visit_plan_verification_status" />
+      <PropertyRef Name="visit_real_verification_status" />
+    </Key>
+    <Property Name="visit_id" Type="varchar" MaxLength="50" />
+    <Property Name="rep_id" Type="char" MaxLength="5" />
+    <Property Name="visit_date_plan" Type="datetime" />
+    <Property Name="visit_plan" Type="int" />
+    <Property Name="visit_realization" Type="int" />
+    <Property Name="dr_code" Type="int" />
+    <Property Name="dr_name" Type="varchar" MaxLength="50" />
+    <Property Name="dr_spec" Type="char" MaxLength="10" />
+    <Property Name="dr_sub_spec" Type="char" MaxLength="10" />
+    <Property Name="dr_quadrant" Type="nchar" MaxLength="10" />
+    <Property Name="dr_monitoring" Type="varchar" MaxLength="150" />
+    <Property Name="dr_dk_lk" Type="nchar" MaxLength="10" />
+    <Property Name="dr_area_mis" Type="char" MaxLength="10" />
+    <Property Name="dr_category" Type="varchar" MaxLength="50" />
+    <Property Name="dr_chanel" Type="varchar" MaxLength="50" />
+    <Property Name="visit_date_realization_saved" Type="datetime" />
+    <Property Name="visit_date_plan_saved" Type="datetime" />
+    <Property Name="visit_date_plan_updated" Type="datetime" />
+    <Property Name="visit_info" Type="text" />
+    <Property Name="visit_sp" Type="nvarchar" MaxLength="50" />
+    <Property Name="visit_sp_value" Type="float" />
+    <Property Name="visit_plan_verification_status" Type="int" Nullable="false" />
+    <Property Name="visit_plan_verification_by" Type="char" MaxLength="10" />
+    <Property Name="visit_plan_verification_date" Type="datetime" />
+    <Property Name="visit_real_verification_status" Type="int" Nullable="false" />
+    <Property Name="visit_real_verification_by" Type="nchar" MaxLength="10" />
+    <Property Name="visit_real_verification_date" Type="datetime" />
+    <Property Name="dr_address" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityContainer Name="VisitRealizationModelStoreContainer">
+    <EntitySet Name="v_visit_plan" EntityType="Self.v_visit_plan" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_visit_plan].[visit_id] AS [visit_id], 
+    [v_visit_plan].[rep_id] AS [rep_id], 
+    [v_visit_plan].[visit_date_plan] AS [visit_date_plan], 
+    [v_visit_plan].[visit_plan] AS [visit_plan], 
+    [v_visit_plan].[visit_realization] AS [visit_realization], 
+    [v_visit_plan].[dr_code] AS [dr_code], 
+    [v_visit_plan].[dr_name] AS [dr_name], 
+    [v_visit_plan].[dr_spec] AS [dr_spec], 
+    [v_visit_plan].[dr_sub_spec] AS [dr_sub_spec], 
+    [v_visit_plan].[dr_quadrant] AS [dr_quadrant], 
+    [v_visit_plan].[dr_monitoring] AS [dr_monitoring], 
+    [v_visit_plan].[dr_dk_lk] AS [dr_dk_lk], 
+    [v_visit_plan].[dr_area_mis] AS [dr_area_mis], 
+    [v_visit_plan].[dr_category] AS [dr_category], 
+    [v_visit_plan].[dr_chanel] AS [dr_chanel], 
+    [v_visit_plan].[visit_date_realization_saved] AS [visit_date_realization_saved], 
+    [v_visit_plan].[visit_date_plan_saved] AS [visit_date_plan_saved], 
+    [v_visit_plan].[visit_date_plan_updated] AS [visit_date_plan_updated], 
+    [v_visit_plan].[visit_info] AS [visit_info], 
+    [v_visit_plan].[visit_sp] AS [visit_sp], 
+    [v_visit_plan].[visit_sp_value] AS [visit_sp_value], 
+    [v_visit_plan].[visit_plan_verification_status] AS [visit_plan_verification_status], 
+    [v_visit_plan].[visit_plan_verification_by] AS [visit_plan_verification_by], 
+    [v_visit_plan].[visit_plan_verification_date] AS [visit_plan_verification_date], 
+    [v_visit_plan].[visit_real_verification_status] AS [visit_real_verification_status], 
+    [v_visit_plan].[visit_real_verification_by] AS [visit_real_verification_by], 
+    [v_visit_plan].[visit_real_verification_date] AS [visit_real_verification_date], 
+    [v_visit_plan].[dr_address] AS [dr_address]
+    FROM [dbo].[v_visit_plan] AS [v_visit_plan]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

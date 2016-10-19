@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VisitPlanAddnewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VisitPlanAddnewEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_SELECT_DOCTOR_LIST_NEW" ReturnType="Collection(VisitPlanAddnewModel.SP_SELECT_DOCTOR_LIST_NEW_Result)">
+      <Parameter Name="rep_id" Mode="In" Type="String" />
+      <Parameter Name="rep_position" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_SELECT_DOCTOR_LIST_NEW_Result">
+    <Property Type="Int32" Name="dr_code" Nullable="false" />
+    <Property Type="String" Name="dr_sbo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="dr_bo" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_region" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="dr_rep" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="rep_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_am" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="am_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rep_position" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="dr_name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_spec" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_sub_spec" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_quadrant" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_monitoring" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="dr_address" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="dr_area_mis" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="dr_sum" Nullable="true" />
+    <Property Type="String" Name="dr_category" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_sub_category" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_chanel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_day_visit" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_visiting_hour" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="dr_number_patient" Nullable="true" />
+    <Property Type="String" Name="dr_kol_not" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dr_phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dr_email" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="dr_birthday" Nullable="true" Precision="23" />
+    <Property Type="String" Name="dr_dk_lk" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="dr_used_session" Nullable="true" />
+    <Property Type="String" Name="is_used" Nullable="false" MaxLength="9" />
+    <Property Type="Int32" Name="dr_used_remaining" Nullable="true" />
+    <Property Type="Int32" Name="dr_used_month_session" Nullable="true" />
+    <Property Type="Int32" Name="dr_status" Nullable="true" />
+    <Property Type="String" Name="is_used_on_sales" Nullable="false" MaxLength="9" />
+    <Property Type="Int32" Name="dr_sales_session" Nullable="true" />
+    <Property Type="Int32" Name="dr_sales_month_session" Nullable="true" />
+  </ComplexType>
+</Schema>

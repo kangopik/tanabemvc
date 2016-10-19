@@ -1,0 +1,823 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6F13729-1575-4F00-9B62-F580DD7ECFD3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TANABE_MVC</RootNamespace>
+    <AssemblyName>TANABE MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>TANABE MVC.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>TANABE MVC.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.FluentMap, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.FluentMap.1.5.1\lib\net40\Dapper.FluentMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.3.0.0\lib\net45\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxTreeList.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.SpellChecker.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v16.1.Presets, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxGauges.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v16.1.Web, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v16.1.Web, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxScheduler.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Spreadsheet.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxSpreadsheet.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Resources.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v16.1.Web, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v16.1.Web.Mvc5, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Mvc5.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.0.0\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.0.0\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Mvc" />
+    <Import Include="System.Web.Mvc.Ajax" />
+    <Import Include="System.Web.Mvc.Html" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.vb" />
+    <Compile Include="App_Start\FilterConfig.vb" />
+    <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\Admin\AllocationController.vb" />
+    <Compile Include="Controllers\Admin\CustomerController.vb" />
+    <Compile Include="Controllers\Admin\ImportAsoController.vb" />
+    <Compile Include="Controllers\Admin\ProductController.vb" />
+    <Compile Include="Controllers\Admin\TargetController.vb" />
+    <Compile Include="Controllers\Dashboard\HomeController.vb" />
+    <Compile Include="Controllers\Login\LoginController.vb" />
+    <Compile Include="Controllers\Master\AuditVisitMonthlyController.vb" />
+    <Compile Include="Controllers\Master\MasterBoController.vb" />
+    <Compile Include="Controllers\Master\MasterDoctorController.vb" />
+    <Compile Include="Controllers\Master\MasterProductController.vb" />
+    <Compile Include="Controllers\Master\MasterRegionalController.vb" />
+    <Compile Include="Controllers\Master\MasterRepresentativeController.vb" />
+    <Compile Include="Controllers\Master\MasterSboController.vb" />
+    <Compile Include="Controllers\Master\MasterVisitController.vb" />
+    <Compile Include="Controllers\Report\RptCovPivotController.vb" />
+    <Compile Include="Controllers\Report\RptDoctorController.vb" />
+    <Compile Include="Controllers\Report\RptDoctorPivotController.vb" />
+    <Compile Include="Controllers\Report\RptSalesPivotController.vb" />
+    <Compile Include="Controllers\Report\RptVisitPivotController.vb" />
+    <Compile Include="Controllers\Report\RptVisitProductController.vb" />
+    <Compile Include="Controllers\Report\VisitOnlyPivotRepController.vb" />
+    <Compile Include="Controllers\Report\SalesPivotRepController.vb" />
+    <Compile Include="Controllers\Report\VisitProductPivotRepController.vb" />
+    <Compile Include="Controllers\Sales\Actual\SalesActualController.vb" />
+    <Compile Include="Controllers\Sales\History\SalesHistoryController.vb" />
+    <Compile Include="Controllers\Sales\Plan\SalesPlanController.vb" />
+    <Compile Include="Controllers\Sales\Realization\SalesRealizationController.vb" />
+    <Compile Include="Controllers\Sales\Verification\SalesPlanHistoryVerificationController.vb" />
+    <Compile Include="Controllers\Sales\Verification\SalesPlanVerificationController.vb" />
+    <Compile Include="Controllers\Sales\Verification\SalesRealHistoryVerificationController.vb" />
+    <Compile Include="Controllers\Sales\Verification\SalesRealVerificationController.vb" />
+    <Compile Include="Controllers\Verification\VerPlanHistoryController.vb" />
+    <Compile Include="Controllers\Verification\VerRealHistoryController.vb" />
+    <Compile Include="Controllers\Verification\VerVisitRealController.vb" />
+    <Compile Include="Controllers\Verification\VerVisitplanController.vb" />
+    <Compile Include="Controllers\Visit\VisitActualController.vb" />
+    <Compile Include="Controllers\Visit\VisitHistoryController.vb" />
+    <Compile Include="Controllers\Visit\VisitPlanController.vb" />
+    <Compile Include="Controllers\Visit\VisitRealizationController.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin\Allocation\AllocationClass.vb" />
+    <Compile Include="Models\Admin\Allocation\AllocationModel.vb" />
+    <Compile Include="Models\Admin\Customer\CustomerClass.vb" />
+    <Compile Include="Models\Admin\Customer\CustomerModel.vb" />
+    <Compile Include="Models\Admin\ImportAso\ImportAsoClass.vb" />
+    <Compile Include="Models\Admin\ImportAso\ImportAsoModel.vb" />
+    <Compile Include="Models\Admin\Product\ProductClass.vb" />
+    <Compile Include="Models\Admin\Product\ProductModel.vb" />
+    <Compile Include="Models\Admin\Product\ProductpmModel.vb" />
+    <Compile Include="Models\Admin\Target\TargetClass.vb" />
+    <Compile Include="Models\Admin\Target\TargetModel.vb" />
+    <Compile Include="Models\Dashboard\SP_SELECT_VISIT_PIVOT_REP_DASHBOARD_Result.vb">
+      <DependentUpon>VisitPivotModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dashboard\VisitPivotModel.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitPivotModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dashboard\VisitPivotModel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitPivotModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dashboard\VisitPivotModel.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitPivotModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login\tUserModel.vb" />
+    <Compile Include="Models\Model\AllKaryawanModel.vb" />
+    <Compile Include="Models\Model\audit_visitModel.vb" />
+    <Compile Include="Models\Model\DepartemenModel.vb" />
+    <Compile Include="Models\Model\DoctorCodeModel.vb" />
+    <Compile Include="Models\Model\TransactEmailModel.vb" />
+    <Compile Include="Models\Model\t_salesModel.vb" />
+    <Compile Include="Models\Model\t_sales_product_actualModel.vb" />
+    <Compile Include="Models\Model\v_m_doctorModel.vb" />
+    <Compile Include="Models\Model\v_PlannedDetail.vb" />
+    <Compile Include="Models\Model\m_boModel.vb" />
+    <Compile Include="Models\Model\m_categoryModel.vb" />
+    <Compile Include="Models\Model\m_divisionModel.vb" />
+    <Compile Include="Models\Model\m_doctorModel.vb" />
+    <Compile Include="Models\Model\m_productModel.vb" />
+    <Compile Include="Models\Model\m_quadrantModel.vb" />
+    <Compile Include="Models\Model\m_regionalModel.vb" />
+    <Compile Include="Models\Model\m_repModel.vb" />
+    <Compile Include="Models\Model\m_sboModel.vb" />
+    <Compile Include="Models\Model\m_specModel.vb" />
+    <Compile Include="Models\Model\m_visitModel.vb" />
+    <Compile Include="Models\Model\v_branchModel.vb" />
+    <Compile Include="Models\Model\v_master_amModel.vb" />
+    <Compile Include="Models\Model\v_rep_fullModel.vb" />
+    <Compile Include="Models\Model\v_sales_planModel.vb" />
+    <Compile Include="Models\Model\v_sales_plan_2Model.vb" />
+    <Compile Include="Models\Model\v_sales_productModel.vb" />
+    <Compile Include="Models\Options\PivotGridExportOptions.vb" />
+    <Compile Include="Models\Report\SalesPivotRepModel.vb" />
+    <Compile Include="Models\Verification\Plan\VerVisitPlanModel.vb" />
+    <Compile Include="Models\Visit\Plan\VisitPlanModel.vb" />
+    <Compile Include="Module\PivotGridLayout.vb" />
+    <Compile Include="Models\Report\VisitOnlyPivotRepModel.vb" />
+    <Compile Include="Models\Report\VisitProductPivotRepModel.vb" />
+    <Compile Include="Models\Sales\Plan\SalesPlanClass.vb" />
+    <Compile Include="Models\Verification\History\VerPlanHistoryModel.vb" />
+    <Compile Include="Models\Verification\History\VerRealHistoryModel.vb" />
+    <Compile Include="Models\Verification\Realization\VerVisitRealModel.vb" />
+    <Compile Include="Models\Visit\Actual\DetailActualModel.vb" />
+    <Compile Include="Models\Visit\History\DetailHistoryModel.vb" />
+    <Compile Include="Models\Visit\History\SP_SELECT_FINISHED_VISIT_Result.vb">
+      <DependentUpon>VisitHistoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\History\VisitHistoryClass.vb" />
+    <Compile Include="Models\Visit\History\VisitHistoryModel.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitHistoryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\History\VisitHistoryModel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitHistoryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\History\VisitHistoryModel.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitHistoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\Actual\SP_SELECT_SUBMITTED_VISIT_Result.vb">
+      <DependentUpon>VisitActualModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\Actual\VisitActualClass.vb" />
+    <Compile Include="Models\Visit\Actual\VisitActualModel.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitActualModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\Actual\VisitActualModel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitActualModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\Actual\VisitActualModel.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitActualModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\Realization\DoctorListClass.vb" />
+    <Compile Include="Models\Visit\Realization\DoctorListModel.Context.vb">
+      <DependentUpon>DoctorListModel.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\Visit\Realization\DoctorListModel.Designer.vb">
+      <DependentUpon>DoctorListModel.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\Visit\Realization\DoctorListModel.vb">
+      <DependentUpon>DoctorListModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\Visit\Realization\DoctorPlanedClass.vb" />
+    <Compile Include="Models\Visit\Realization\DoctorPlanedModel.vb" />
+    <Compile Include="Models\Visit\Realization\ProductListClass.vb" />
+    <Compile Include="Models\Visit\Realization\ProductListModel.vb" />
+    <Compile Include="Models\Visit\Realization\SP_SELECT_DOCTOR_LIST_Result.vb">
+      <DependentUpon>DoctorListModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit\Realization\VisitRealization.vb" />
+    <Compile Include="Models\Visit\Realization\VisitRealModel.vb" />
+    <Compile Include="Module\ConfigClass.vb" />
+    <Compile Include="Module\GlobalClass.vb" />
+    <Compile Include="Module\GridViewEditingHelper.vb" />
+    <Compile Include="Module\GridViewSelectionHelper.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Repositories\Login\r_login.vb" />
+    <Compile Include="Repositories\Master\Iaudit_visit.vb" />
+    <Compile Include="Repositories\Master\Im_bo.vb" />
+    <Compile Include="Repositories\Master\Im_doctor.vb" />
+    <Compile Include="Repositories\Master\Im_product.vb" />
+    <Compile Include="Repositories\Master\Im_regional.vb" />
+    <Compile Include="Repositories\Master\Im_rep.vb" />
+    <Compile Include="Repositories\Master\Im_sbo.vb" />
+    <Compile Include="Repositories\Master\Im_visit.vb" />
+    <Compile Include="Repositories\Report\r_visitonlypivotrep.vb" />
+    <Compile Include="Repositories\Report\r_SalesPivotRep.vb" />
+    <Compile Include="Repositories\Report\r_VisitProductPivotRep.vb" />
+    <Compile Include="Repositories\Sales\ISalesActual.vb" />
+    <Compile Include="Repositories\Sales\ISalesHistory.vb" />
+    <Compile Include="Repositories\Sales\ISalesPlan.vb" />
+    <Compile Include="Repositories\Sales\ISalesPlanVerification.vb" />
+    <Compile Include="Repositories\Sales\ISalesPlanVerificationHistory.vb" />
+    <Compile Include="Repositories\Sales\ISalesRealization.vb" />
+    <Compile Include="Repositories\Sales\ISalesRealVerficationHistory.vb" />
+    <Compile Include="Repositories\Sales\ISalesRealVerification.vb" />
+    <Compile Include="Repositories\Verification\r_VerPlanHistory.vb" />
+    <Compile Include="Repositories\Verification\r_VerRealHistory.vb" />
+    <Compile Include="Repositories\Verification\r_VerVisitReal.vb" />
+    <Compile Include="Repositories\Verification\r_VerVisitPlan.vb" />
+    <Compile Include="Repositories\Visit\r_realization.vb" />
+    <Compile Include="Repositories\Visit\r_plan.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\SideMenu.xml" />
+    <Content Include="App_Data\TopMenu.xml" />
+    <Content Include="ContentEmailPage\email_page_approved_decision_info_all.htm" />
+    <Content Include="ContentEmailPage\email_page_approved_decision_initiator.htm" />
+    <Content Include="ContentEmailPage\email_page_canceled_decision.htm" />
+    <Content Include="ContentEmailPage\email_page_canceled_decision_by_initiator.htm" />
+    <Content Include="ContentEmailPage\email_page_canceled_decision_info_all.htm" />
+    <Content Include="ContentEmailPage\email_page_duly_inform.htm" />
+    <Content Include="ContentEmailPage\email_page_new_plan.htm" />
+    <Content Include="ContentEmailPage\email_page_new_real.htm" />
+    <Content Include="ContentEmailPage\email_page_new_sales_plan.htm" />
+    <Content Include="ContentEmailPage\email_page_new_sales_real.htm" />
+    <Content Include="ContentEmailPage\email_page_rejected_decision.htm" />
+    <Content Include="ContentEmailPage\email_page_rejected_decision_info_all.htm" />
+    <Content Include="ContentEmailPage\email_page_request_deviation.htm" />
+    <Content Include="ContentEmailPage\email_page_resend.htm" />
+    <Content Include="ContentEmailPage\email_page_revised_document.htm" />
+    <Content Include="ContentEmailPage\email_page_revision_document.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_approved_slip_info_all.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_approved_slip_initiator.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_authorized_slip_initiator.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_new_slip_approval_request.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_rccode_request.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_rejected_slip.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_rejected_slip_info_all.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_resend.htm" />
+    <Content Include="ContentEmailPage\sd_email_page_revision_document.htm" />
+    <Content Include="ContentEmailPage\sp8_email_page_alert.htm" />
+    <Content Include="Content\css\reset.css" />
+    <Content Include="Content\css\structure.css" />
+    <Content Include="Content\Images\actual.png" />
+    <Content Include="Content\Images\add-icon.png" />
+    <Content Include="Content\Images\add-icon2.png" />
+    <Content Include="Content\Images\admin.png" />
+    <Content Include="Content\Images\cancel-icon2.png" />
+    <Content Include="Content\Images\cancel.png" />
+    <Content Include="Content\Images\cancel2.png" />
+    <Content Include="Content\Images\check.png" />
+    <Content Include="Content\Images\copy.png" />
+    <Content Include="Content\Images\delete-icon2.png" />
+    <Content Include="Content\Images\delete.png" />
+    <Content Include="Content\Images\edit-icon2.png" />
+    <Content Include="Content\Images\edit.png" />
+    <Content Include="Content\Images\excel.png" />
+    <Content Include="Content\Images\history.png" />
+    <Content Include="Content\Images\home.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\pdf.png" />
+    <Content Include="Content\Images\plan.png" />
+    <Content Include="Content\Images\plus.png" />
+    <Content Include="Content\Images\realization.png" />
+    <Content Include="Content\Images\report.png" />
+    <Content Include="Content\Images\request.png" />
+    <Content Include="Content\Images\reset.png" />
+    <Content Include="Content\Images\retrieve.png" />
+    <Content Include="Content\Images\sales.png" />
+    <Content Include="Content\Images\scheme.png" />
+    <Content Include="Content\Images\unselect.png" />
+    <Content Include="Content\Images\update-icon2.png" />
+    <Content Include="Content\Images\update.png" />
+    <Content Include="Content\Images\update_cancel.png" />
+    <Content Include="Content\Images\verification.png" />
+    <Content Include="Content\Images\verify.png" />
+    <Content Include="Content\Images\visit.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\js\jquery.js" />
+    <EntityDeploy Include="Models\Dashboard\VisitPivotModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VisitPivotModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Dashboard\VisitPivotModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VisitPivotModel.edmx</DependentUpon>
+      <LastGenOutput>VisitPivotModel.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Models\Dashboard\VisitPivotModel.edmx.diagram">
+      <DependentUpon>VisitPivotModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Dashboard\VisitPivotModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VisitPivotModel.edmx</DependentUpon>
+      <LastGenOutput>VisitPivotModel.vb</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Visit\Actual\VisitActualModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VisitActualModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Visit\Actual\VisitActualModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VisitActualModel.edmx</DependentUpon>
+      <LastGenOutput>VisitActualModel.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Models\Visit\Actual\VisitActualModel.edmx.diagram">
+      <DependentUpon>VisitActualModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Visit\Actual\VisitActualModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VisitActualModel.edmx</DependentUpon>
+      <LastGenOutput>VisitActualModel.vb</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Visit\History\VisitHistoryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VisitHistoryModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Visit\History\VisitHistoryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VisitHistoryModel.edmx</DependentUpon>
+      <LastGenOutput>VisitHistoryModel.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Models\Visit\History\VisitHistoryModel.edmx.diagram">
+      <DependentUpon>VisitHistoryModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Visit\History\VisitHistoryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VisitHistoryModel.edmx</DependentUpon>
+      <LastGenOutput>VisitHistoryModel.vb</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Visit\Realization\DoctorListModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DoctorListModel.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="licenses.licx.bak" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\tanabe.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Content\Images\AquaHeader.jpg" />
+    <Content Include="Content\Images\BlackGlassHeader.jpg" />
+    <Content Include="Content\Images\GlassHeader.jpg" />
+    <Content Include="Content\Images\PlasticBlueHeader.jpg" />
+    <Content Include="Content\Images\RedWineHeader.jpg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Visit\Realization\DoctorListModel.Context.tt">
+      <DependentUpon>DoctorListModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DoctorListModel.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Models\Visit\Realization\DoctorListModel.edmx.diagram">
+      <DependentUpon>DoctorListModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Visit\Realization\DoctorListModel.tt">
+      <DependentUpon>DoctorListModel.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DoctorListModel.vb</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\globalize.cultures.js" />
+    <Content Include="Scripts\globalize.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.0.0.debug.js" />
+    <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.vbhtml" />
+    <Content Include="Views\Home\Index.vbhtml" />
+    <Content Include="Views\Shared\_mainLayout.vbhtml" />
+    <Content Include="Views\Shared\_rootLayout.vbhtml" />
+    <Content Include="Views\Shared\ContentLeftPartialView.vbhtml" />
+    <Content Include="Views\Shared\HeaderPartialView.vbhtml" />
+    <Content Include="Views\Shared\LogOnPartialView.vbhtml" />
+    <Content Include="Views\Login\GridViewPartialView.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Boolean.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Decimal.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.vbhtml" />
+    <Content Include="Views\Home\ChartView.vbhtml" />
+    <Content Include="Views\Visit\Plan\Plan.vbhtml" />
+    <Content Include="Views\Login\Index.vbhtml" />
+    <Content Include="Views\Home\_PivotGrid1Partial.vbhtml" />
+    <Content Include="Views\Home\VisitPointLineViewsPartial.vbhtml" />
+    <Content Include="Views\Home\PivotGridSalesPartial.vbhtml" />
+    <Content Include="Views\Home\SalesPointLineViewsPartial.vbhtml" />
+    <Content Include="Views\Visit\Realization\Realization.vbhtml" />
+    <Content Include="Views\Visit\Realization\VisitRealizationDataViewPartial.vbhtml" />
+    <Content Include="Views\Visit\Actual\Actual.vbhtml" />
+    <Content Include="Views\Visit\Actual\VisitActualDataViewPartial.vbhtml" />
+    <Content Include="Views\Visit\History\History.vbhtml" />
+    <Content Include="Views\Visit\History\VisitHistoryDataViewPartial.vbhtml" />
+    <Content Include="Views\Visit\Plan\NotifyView.vbhtml" />
+    <Content Include="Views\Visit\Plan\PopUpReqVerification.vbhtml" />
+    <Content Include="Views\Verification\Plan\Verification.vbhtml" />
+    <Content Include="Views\Verification\Plan\VerVisitPlanDataViewPartial.vbhtml" />
+    <Content Include="Views\Visit\Plan\GridLookupPartial.vbhtml" />
+    <Content Include="Views\Verification\Plan\GridLookupPartial.vbhtml" />
+    <Content Include="Views\Visit\Realization\PopupRealization.vbhtml" />
+    <Content Include="Views\Visit\Realization\GridLookupProductPartial.vbhtml" />
+    <Content Include="Views\Visit\Realization\PopupAdditionalVisit.vbhtml" />
+    <Content Include="Views\Visit\Realization\AdditionalProductPartial.vbhtml" />
+    <Content Include="Views\Visit\Realization\PopupCancellation.vbhtml" />
+    <Content Include="Views\Visit\Actual\MasterDetailDetailPartial.vbhtml" />
+    <Content Include="Views\Visit\Actual\PopupReqVerification.vbhtml" />
+    <Content Include="Views\Visit\Actual\PopupEdit.vbhtml" />
+    <Content Include="Views\Visit\Actual\TabRealization.vbhtml" />
+    <Content Include="Views\Visit\Actual\TabProduct.vbhtml" />
+    <Content Include="Views\Visit\Plan\InfoDetail.vbhtml" />
+    <Content Include="Views\Admin\Product\Product.vbhtml" />
+    <Content Include="Views\Admin\Product\DataViewPartial.vbhtml" />
+    <Content Include="Views\Admin\Target\Target.vbhtml" />
+    <Content Include="Views\Admin\Target\DataViewPartial.vbhtml" />
+    <Content Include="Views\Visit\Plan\DataViewPartial.vbhtml" />
+    <Content Include="Views\Visit\Plan\PopupNewPlanView.vbhtml" />
+    <Content Include="Views\Visit\Realization\RealizationProductPartial.vbhtml" />
+    <Content Include="Views\Visit\History\MasterDetailDetailPartial.vbhtml" />
+    <Content Include="Views\Verification\Realization\Verification.vbhtml" />
+    <Content Include="Views\Verification\Realization\VerVisitRealDataViewPartial.vbhtml" />
+    <Content Include="Views\Verification\History\Plan.vbhtml" />
+    <Content Include="Views\Verification\History\VerPlanHistoryDataViewPartial.vbhtml" />
+    <Content Include="Views\Verification\History\GridLookupPartial.vbhtml" />
+    <Content Include="Views\Master\AuditVisitMonthly\AuditVisitMonthly.vbhtml" />
+    <Content Include="Views\Master\AuditVisitMonthly\ViewAuditVisitMonthly.vbhtml" />
+    <Content Include="Views\Master\MasterBO\MasterBO.vbhtml" />
+    <Content Include="Views\Master\MasterBO\ViewMasterBO.vbhtml" />
+    <Content Include="Views\Master\MasterDoctor\MasterDoctor.vbhtml" />
+    <Content Include="Views\Master\MasterDoctor\ViewMasterDoctor.vbhtml" />
+    <Content Include="Views\Master\MasterProduct\MasterProduct.vbhtml" />
+    <Content Include="Views\Master\MasterProduct\ViewMasterProduct.vbhtml" />
+    <Content Include="Views\Master\MasterRegional\MasterRegional.vbhtml" />
+    <Content Include="Views\Master\MasterRegional\ViewMasterRegional.vbhtml" />
+    <Content Include="Views\Master\MasterRepresentative\MasterRepresentative.vbhtml" />
+    <Content Include="Views\Master\MasterRepresentative\ViewMasterRepresentative.vbhtml" />
+    <Content Include="Views\Master\MasterSBO\MasterSBO.vbhtml" />
+    <Content Include="Views\Master\MasterSBO\ViewMasterSBO.vbhtml" />
+    <Content Include="Views\Master\MasterVisit\MasterVisit.vbhtml" />
+    <Content Include="Views\Master\MasterVisit\ViewMasterVisit.vbhtml" />
+    <Content Include="Views\Report\Rep\VisitOnlyPivotRep.vbhtml" />
+    <Content Include="Views\Report\Rep\VisitOnlyPivotRepPartialView.vbhtml" />
+    <Content Include="Views\Report\Rep\VisitProductPivotRep.vbhtml" />
+    <Content Include="Views\Report\Rep\VisitProductPivotRepPartialView.vbhtml" />
+    <Content Include="Views\Report\Rep\SalesPivotRep.vbhtml" />
+    <Content Include="Views\Report\Rep\SalesPivotRepPartialView.vbhtml" />
+    <Content Include="Views\Visit\Realization\AdditionalDoctorPartial.vbhtml" />
+    <Content Include="Views\Visit\Realization\CancellationVisitListPartial.vbhtml" />
+    <Content Include="Views\Verification\Realization\GridLookupPartial.vbhtml" />
+    <Content Include="Views\Verification\Realization\MasterDetailPartial.vbhtml" />
+    <Content Include="Views\Verification\RealHistory\GridLookupPartial.vbhtml" />
+    <Content Include="Views\Verification\RealHistory\MasterDetailPartial.vbhtml" />
+    <Content Include="Views\Verification\RealHistory\Realization.vbhtml" />
+    <Content Include="Views\Verification\RealHistory\VerVisitRealDataViewPartial.vbhtml" />
+    <Content Include="Views\Sales\VerificationPlan\SalesPlanVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationPlan\ViewSalesPlanVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationPlanHistory\SalesPlanHistoryVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationPlanHistory\ViewSalesPlanHistoryVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationReal\SalesRealVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationReal\ViewSalesRealVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationRealHistory\SalesRealHistoryVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationRealHistory\ViewSalesRealHistoryVerification.vbhtml" />
+    <Content Include="Views\Sales\Actual\SalesActual.vbhtml" />
+    <Content Include="Views\Sales\Actual\ViewSalesActual.vbhtml" />
+    <Content Include="Views\Sales\History\SalesHistory.vbhtml" />
+    <Content Include="Views\Sales\History\ViewSalesHistory.vbhtml" />
+    <Content Include="Views\Sales\Plan\SalesPlan.vbhtml" />
+    <Content Include="Views\Sales\Plan\ViewSalesPlan.vbhtml" />
+    <Content Include="Views\Sales\Realization\SalesRealization.vbhtml" />
+    <Content Include="Views\Sales\Realization\ViewSalesRealization.vbhtml" />
+    <Content Include="Views\Sales\Plan\PopupCopySales.vbhtml" />
+    <Content Include="Views\Sales\Plan\EditFormPlan.vbhtml" />
+    <Content Include="Views\Sales\Plan\PopupMapping.vbhtml" />
+    <Content Include="Views\Sales\Plan\PopupRequest.vbhtml" />
+    <Content Include="Views\Sales\VerificationPlan\EditFormVerification.vbhtml" />
+    <Content Include="Views\Sales\Realization\DetailSalesRealization.vbhtml" />
+    <Content Include="Views\Sales\Realization\EditFormRealization.vbhtml" />
+    <Content Include="Views\Sales\Realization\PopupMapping.vbhtml" />
+    <Content Include="Views\Sales\VerificationReal\DetailRealVerification.vbhtml" />
+    <Content Include="Views\Sales\VerificationReal\EditFormRealVerification.vbhtml" />
+    <Content Include="Views\Sales\Actual\DetailSalesActual.vbhtml" />
+    <Content Include="Views\Sales\Actual\EditFormActual.vbhtml" />
+    <Content Include="Views\Sales\Actual\PopupMapping.vbhtml" />
+    <Content Include="Views\Sales\Actual\PopupRequest.vbhtml" />
+    <Content Include="Views\Sales\VerificationPlanHistory\DetailSalesPlanHistory.vbhtml" />
+    <Content Include="Views\Sales\VerificationPlanHistory\EditFormPlanHistory.vbhtml" />
+    <Content Include="Views\Sales\History\DetailSalesHistory.vbhtml" />
+    <Content Include="Views\Sales\History\EditFormHistory.vbhtml" />
+    <Content Include="Views\Sales\History\PopupMapping.vbhtml" />
+    <Content Include="Views\Sales\VerificationRealHistory\DetailSalesRealHistory.vbhtml" />
+    <Content Include="Views\Sales\VerificationRealHistory\EditFormRealHistory.vbhtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Sales\Actual\" />
+    <Folder Include="Models\Sales\History\" />
+    <Folder Include="Models\Sales\Realization\" />
+    <Folder Include="Views\Admin\Customer\" />
+    <Folder Include="Views\Report\RptCovPivot\" />
+    <Folder Include="Views\Report\RptDoctorPivot\" />
+    <Folder Include="Views\Report\RptDoctor\" />
+    <Folder Include="Views\Report\RptSalesPivot\" />
+    <Folder Include="Views\SalesRealVerificationHistory\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6830</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6830/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

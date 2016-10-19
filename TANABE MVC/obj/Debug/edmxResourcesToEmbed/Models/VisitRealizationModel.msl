@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VisitRealizationModelStoreContainer" CdmEntityContainer="VisitRealizationEntities">
+    <EntitySetMapping Name="v_visit_plan">
+      <EntityTypeMapping TypeName="VisitRealizationModel.v_visit_plan">
+        <MappingFragment StoreEntitySet="v_visit_plan">
+          <ScalarProperty Name="visit_id" ColumnName="visit_id" />
+          <ScalarProperty Name="rep_id" ColumnName="rep_id" />
+          <ScalarProperty Name="visit_date_plan" ColumnName="visit_date_plan" />
+          <ScalarProperty Name="visit_plan" ColumnName="visit_plan" />
+          <ScalarProperty Name="visit_realization" ColumnName="visit_realization" />
+          <ScalarProperty Name="dr_code" ColumnName="dr_code" />
+          <ScalarProperty Name="dr_name" ColumnName="dr_name" />
+          <ScalarProperty Name="dr_spec" ColumnName="dr_spec" />
+          <ScalarProperty Name="dr_sub_spec" ColumnName="dr_sub_spec" />
+          <ScalarProperty Name="dr_quadrant" ColumnName="dr_quadrant" />
+          <ScalarProperty Name="dr_monitoring" ColumnName="dr_monitoring" />
+          <ScalarProperty Name="dr_dk_lk" ColumnName="dr_dk_lk" />
+          <ScalarProperty Name="dr_area_mis" ColumnName="dr_area_mis" />
+          <ScalarProperty Name="dr_category" ColumnName="dr_category" />
+          <ScalarProperty Name="dr_chanel" ColumnName="dr_chanel" />
+          <ScalarProperty Name="visit_date_realization_saved" ColumnName="visit_date_realization_saved" />
+          <ScalarProperty Name="visit_date_plan_saved" ColumnName="visit_date_plan_saved" />
+          <ScalarProperty Name="visit_date_plan_updated" ColumnName="visit_date_plan_updated" />
+          <ScalarProperty Name="visit_info" ColumnName="visit_info" />
+          <ScalarProperty Name="visit_sp" ColumnName="visit_sp" />
+          <ScalarProperty Name="visit_sp_value" ColumnName="visit_sp_value" />
+          <ScalarProperty Name="visit_plan_verification_status" ColumnName="visit_plan_verification_status" />
+          <ScalarProperty Name="visit_plan_verification_by" ColumnName="visit_plan_verification_by" />
+          <ScalarProperty Name="visit_plan_verification_date" ColumnName="visit_plan_verification_date" />
+          <ScalarProperty Name="visit_real_verification_status" ColumnName="visit_real_verification_status" />
+          <ScalarProperty Name="visit_real_verification_by" ColumnName="visit_real_verification_by" />
+          <ScalarProperty Name="visit_real_verification_date" ColumnName="visit_real_verification_date" />
+          <ScalarProperty Name="dr_address" ColumnName="dr_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

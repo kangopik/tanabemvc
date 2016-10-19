@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RepModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="m_rep">
+    <Key>
+      <PropertyRef Name="rep_id" />
+    </Key>
+    <Property Name="rep_id" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="rep_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rep_rm" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="rep_am" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="rep_region" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="rep_bo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="rep_sbo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="rep_position" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="rep_division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rep_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rep_joint_date" Type="DateTime" Precision="0" />
+    <Property Name="rep_status" Type="Int32" />
+    <Property Name="rep_inactive_date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="RepEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="m_rep" EntityType="Self.m_rep" />
+  </EntityContainer>
+</Schema>

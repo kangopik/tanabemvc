@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mvaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="mvaEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_INSERT_VISIT_PLAN" ReturnType="Collection(String)">
+      <Parameter Name="visit_id" Mode="In" Type="String" />
+      <Parameter Name="rep_id" Mode="In" Type="String" />
+      <Parameter Name="visit_date_plan" Mode="In" Type="DateTime" />
+      <Parameter Name="dr_code" Mode="In" Type="Int32" />
+      <Parameter Name="rep_position" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
